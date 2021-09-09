@@ -1,0 +1,6 @@
+{"version":1,"strings":[
+{"hash":193352924,"name":"clpdhvalidationparams.sseednil","sourcebytes":[83,101,101,100,32,67,97,110,110,111,116,32,98,101,32,78,105,108],"value":"Seed Cannot be Nil"},
+{"hash":210046108,"name":"clpdhvalidationparams.spgencounternil","sourcebytes":[80,71,101,110,67,111,117,110,116,101,114,32,67,97,110,110,111,116,32,98,101,32,78,105,108],"value":"PGenCounter Cannot be Nil"},
+{"hash":52567620,"name":"clpdhvalidationparams.sbadsequencesize","sourcebytes":[66,97,100,32,83,101,113,117,101,110,99,101,32,83,105,122,101,32,34,115,101,113,34,58,32,37,100],"value":"Bad Sequence Size \"seq\": %d"},
+{"hash":107693827,"name":"clpdhvalidationparams.sinvaliddhvalidationparams","sourcebytes":[73,110,118,97,108,105,100,32,68,72,86,97,108,105,100,97,116,105,111,110,80,97,114,97,109,115,58,32,37,115],"value":"Invalid DHValidationParams: %s"}
+]}

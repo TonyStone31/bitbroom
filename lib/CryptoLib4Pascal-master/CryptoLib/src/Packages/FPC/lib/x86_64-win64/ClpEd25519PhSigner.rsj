@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":221657902,"name":"clped25519phsigner.snotinitializedforsigning","sourcebytes":[69,100,50,53,53,49,57,80,104,83,105,103,110,101,114,32,110,111,116,32,73,110,105,116,105,97,108,105,115,101,100,32,102,111,114,32,83,105,103,110,97,116,117,114,101,32,71,101,110,101,114,97,116,105,111,110,46],"value":"Ed25519PhSigner not Initialised for Signature Generation."},
+{"hash":62778382,"name":"clped25519phsigner.snotinitializedforverifying","sourcebytes":[69,100,50,53,53,49,57,80,104,83,105,103,110,101,114,32,110,111,116,32,73,110,105,116,105,97,108,105,115,101,100,32,102,111,114,32,86,101,114,105,102,105,99,97,116,105,111,110],"value":"Ed25519PhSigner not Initialised for Verification"},
+{"hash":131269908,"name":"clped25519phsigner.sprehashdigestfailed","sourcebytes":[80,114,101,72,97,115,104,32,68,105,103,101,115,116,32,70,97,105,108,101,100],"value":"PreHash Digest Failed"}
+]}

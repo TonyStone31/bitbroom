@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="11"/>
+    <BuildModes Count="3" Active="Debug">
+      <Item1 Name="Debug">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="btcaddresstools"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <IncludeAssertionCode Value="True"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <Checks>
+              <IOChecks Value="True"/>
+              <RangeChecks Value="True"/>
+              <OverflowChecks Value="True"/>
+              <StackChecks Value="True"/>
+            </Checks>
+            <VerifyObjMethodCallValidity Value="True"/>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <DebugInfoType Value="dsDwarf2Set"/>
+              <UseHeaptrc Value="True"/>
+              <TrashVariables Value="True"/>
+              <UseExternalDbgSyms Value="True"/>
+            </Debugging>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
+          </Linking>
+        </CompilerOptions>
+      </Item1>
+      <Item2 Name="Release">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="btcaddresstools"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <CStyleMacros Value="True"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <Optimizations>
+              <OptimizationLevel Value="4"/>
+            </Optimizations>
+            <SmallerCode Value="True"/>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+              <UseHeaptrc Value="True"/>
+              <StripSymbols Value="True"/>
+            </Debugging>
+            <LinkSmart Value="True"/>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
+          </Linking>
+        </CompilerOptions>
+      </Item2>
+      <Item3 Name="Debug No Optimization">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="btcaddresstools"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <IncludeAssertionCode Value="True"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <Checks>
+              <IOChecks Value="True"/>
+              <RangeChecks Value="True"/>
+              <OverflowChecks Value="True"/>
+              <StackChecks Value="True"/>
+            </Checks>
+            <VerifyObjMethodCallValidity Value="True"/>
+            <Optimizations>
+              <OptimizationLevel Value="0"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <DebugInfoType Value="dsDwarf2Set"/>
+              <UseHeaptrc Value="True"/>
+              <TrashVariables Value="True"/>
+              <UseExternalDbgSyms Value="True"/>
+            </Debugging>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
+          </Linking>
+        </CompilerOptions>
+      </Item3>
+    </BuildModes>
+    <Units Count="32">
+      <Unit0>
+        <Filename Value="btcaddresstools.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="35" Y="11"/>
+        <UsageCount Value="235"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="frmmainunit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmMainunit"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="1187"/>
+        <CursorPos X="130" Y="1184"/>
+        <UsageCount Value="235"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="btckeyfunctions.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="295"/>
+        <CursorPos X="3" Y="328"/>
+        <UsageCount Value="235"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="UBitcoinKey.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="164"/>
+        <CursorPos Y="174"/>
+        <UsageCount Value="211"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="UECKey.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="120"/>
+        <CursorPos Y="140"/>
+        <UsageCount Value="211"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="USha256.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="372"/>
+        <CursorPos Y="125"/>
+        <UsageCount Value="252"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="/home/tony/.lazarus/onlinepackagemanager/packages/SimpleBaseLib/src/Bases/SbpBase16.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="96"/>
+        <CursorPos Y="124"/>
+        <UsageCount Value="10"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="../../GIT/btcLazAddressTools/lib/CryptoLib4Pascal-master/CryptoLib/src/Math/ClpBigInteger.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3871"/>
+        <CursorPos X="3" Y="3217"/>
+        <UsageCount Value="12"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="../../GIT/btcLazAddressTools/lib/CryptoLib4Pascal-master/CryptoLib/src/Utils/Encoders/ClpEncoders.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="69"/>
+        <CursorPos X="3" Y="95"/>
+        <UsageCount Value="73"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="../../GIT/btcLazAddressTools/lib/CryptoLib4Pascal-master/CryptoLib/src/Asn1/X9/ClpX9ECParameters.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="106"/>
+        <CursorPos Y="115"/>
+        <UsageCount Value="5"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="lib/wthread-master/wcthread.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="647"/>
+        <CursorPos Y="577"/>
+        <UsageCount Value="78"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="/usr/share/fpcsrc/3.2.0/rtl/objpas/classes/classesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1949"/>
+        <CursorPos X="17" Y="1964"/>
+        <UsageCount Value="81"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="lib/wthread-master/wthread.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="26" Y="328"/>
+        <UsageCount Value="71"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="lib/wthread-master/wlog.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="71"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="lib/wthread-master/wcthreadreg.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="71"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="/usr/share/fpcsrc/3.2.0/rtl/inc/objpash.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="247"/>
+        <CursorPos X="19" Y="263"/>
+        <UsageCount Value="12"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/include/control.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3550"/>
+        <CursorPos Y="3566"/>
+        <UsageCount Value="39"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/include/customedit.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="575"/>
+        <CursorPos Y="597"/>
+        <UsageCount Value="39"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="../../GIT/btcLazAddressTools/lib/CryptoLib4Pascal-master/CryptoLib/src/Crypto/Generators/ClpECKeyPairGenerator.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="169"/>
+        <UsageCount Value="45"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="../../GIT/btcLazAddressTools/lib/HashLib4Pascal-master/HashLib/src/Crypto/HlpSHA2_256.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="17"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="../../GIT/btcLazAddressTools/lib/CryptoLib4Pascal-master/CryptoLib/src/Math/EC/ClpECC.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2753"/>
+        <CursorPos Y="2772"/>
+        <UsageCount Value="26"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="../../GIT/btcLazAddressTools/lib/CryptoLib4Pascal-master/CryptoLib/src/Crypto/Parameters/ClpECPrivateKeyParameters.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="67"/>
+        <UsageCount Value="45"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="../../GIT/btcLazAddressTools/lib/CryptoLib4Pascal-master/CryptoLib/src/Crypto/Parameters/ClpECKeyParameters.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="64"/>
+        <CursorPos Y="83"/>
+        <UsageCount Value="45"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="../../GIT/btcLazAddressTools/lib/CryptoLib4Pascal-master/CryptoLib/src/Math/EC/Multiplier/ClpMultipliers.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="201"/>
+        <CursorPos Y="223"/>
+        <UsageCount Value="45"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="../../GIT/btcLazAddressTools/lib/CryptoLib4Pascal-master/CryptoLib/src/Crypto/Parameters/ClpECDomainParameters.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="99"/>
+        <CursorPos Y="119"/>
+        <UsageCount Value="45"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="../../GIT/btcLazAddressTools/lib/CryptoLib4Pascal-master/CryptoLib/src/Interfaces/ClpIECC.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="260"/>
+        <CursorPos X="14" Y="260"/>
+        <UsageCount Value="45"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="../../GIT/btcLazAddressTools/lib/CryptoLib4Pascal-master/CryptoLib/src/Interfaces/ClpISecureRandom.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="13"/>
+        <CursorPos X="3" Y="30"/>
+        <UsageCount Value="45"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="../../GIT/btcLazAddressTools/lib/CryptoLib4Pascal-master/CryptoLib/src/Interfaces/ClpIRandom.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="8"/>
+        <CursorPos X="15" Y="32"/>
+        <UsageCount Value="45"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="/home/tony/.lazarus/onlinepackagemanager/packages/wthread/wcthread.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="328"/>
+        <UsageCount Value="2"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="/usr/share/fpcsrc/3.2.0/packages/regexpr/src/regex.pp"/>
+        <UnitName Value="Regex"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="22"/>
+        <UsageCount Value="33"/>
+        <Loaded Value="True"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/include/customform.inc"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="1905"/>
+        <CursorPos Y="1921"/>
+        <UsageCount Value="31"/>
+        <Loaded Value="True"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="lib/CryptoLib4Pascal-master/CryptoLib/src/Interfaces/ClpIECC.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="245"/>
+        <CursorPos X="14" Y="260"/>
+        <UsageCount Value="31"/>
+        <Loaded Value="True"/>
+      </Unit31>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="885" Column="96" TopLine="857"/>
+      </Position1>
+      <Position2>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="968" Column="31" TopLine="950"/>
+      </Position2>
+      <Position3>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="1062" Column="5" TopLine="1039"/>
+      </Position3>
+      <Position4>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="1849" Column="32" TopLine="1822"/>
+      </Position4>
+      <Position5>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="1857" Column="53" TopLine="1830"/>
+      </Position5>
+      <Position6>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="133" Column="17" TopLine="104"/>
+      </Position6>
+      <Position7>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="185" TopLine="158"/>
+      </Position7>
+      <Position8>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="1214" Column="105" TopLine="1194"/>
+      </Position8>
+      <Position9>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="518" Column="37" TopLine="503"/>
+      </Position9>
+      <Position10>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="396" TopLine="376"/>
+      </Position10>
+      <Position11>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="395" Column="32" TopLine="376"/>
+      </Position11>
+      <Position12>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="1158" Column="64" TopLine="1136"/>
+      </Position12>
+      <Position13>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="1159" Column="79" TopLine="1142"/>
+      </Position13>
+      <Position14>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/include/customform.inc"/>
+        <Caret Line="1921" TopLine="1905"/>
+      </Position14>
+      <Position15>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="1158" TopLine="1098"/>
+      </Position15>
+      <Position16>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="1214" Column="36" TopLine="1182"/>
+      </Position16>
+      <Position17>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="269" Column="18" TopLine="252"/>
+      </Position17>
+      <Position18>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="518" Column="18" TopLine="490"/>
+      </Position18>
+      <Position19>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="1156" Column="27" TopLine="1129"/>
+      </Position19>
+      <Position20>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="1211" Column="27" TopLine="1181"/>
+      </Position20>
+      <Position21>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="269" Column="18" TopLine="252"/>
+      </Position21>
+      <Position22>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="518" Column="18" TopLine="490"/>
+      </Position22>
+      <Position23>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="1156" Column="27" TopLine="1129"/>
+      </Position23>
+      <Position24>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="1211" Column="27" TopLine="1184"/>
+      </Position24>
+      <Position25>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="1167" Column="124" TopLine="1158"/>
+      </Position25>
+      <Position26>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="833" Column="17" TopLine="824"/>
+      </Position26>
+      <Position27>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="919" TopLine="900"/>
+      </Position27>
+      <Position28>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="812" Column="22" TopLine="798"/>
+      </Position28>
+      <Position29>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="1012" Column="47" TopLine="1010"/>
+      </Position29>
+      <Position30>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="838" Column="37" TopLine="818"/>
+      </Position30>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints Count="1">
+      <Item1>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="btckeyfunctions.pas"/>
+        <Line Value="336"/>
+      </Item1>
+    </BreakPoints>
+    <Watches Count="10">
+      <Item1>
+        <Expression Value="i"/>
+      </Item1>
+      <Item2>
+        <Expression Value="th2kil"/>
+      </Item2>
+      <Item3>
+        <Expression Value="strAr[1]"/>
+      </Item3>
+      <Item4>
+        <Expression Value="strAr[2])"/>
+      </Item4>
+      <Item5>
+        <Expression Value="brwins"/>
+        <DisplayStyle Value="wdfString"/>
+      </Item5>
+      <Item6>
+        <Expression Value="incBTCAddress"/>
+      </Item6>
+      <Item7>
+        <Expression Value="incPubKey"/>
+      </Item7>
+      <Item8>
+        <Expression Value="incPubKeyComp"/>
+      </Item8>
+      <Item9>
+        <Expression Value="incBTCAddressC"/>
+      </Item9>
+      <Item10>
+        <Expression Value="GetWorkSample"/>
+      </Item10>
+    </Watches>
+  </Debugging>
+</CONFIG>

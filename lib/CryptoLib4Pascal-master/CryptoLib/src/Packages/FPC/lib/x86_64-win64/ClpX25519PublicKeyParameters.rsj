@@ -1,0 +1,3 @@
+{"version":1,"strings":[
+{"hash":17276505,"name":"clpx25519publickeyparameters.seofinpublickey","sourcebytes":[69,79,70,32,101,110,99,111,117,110,116,101,114,101,100,32,105,110,32,109,105,100,100,108,101,32,111,102,32,88,50,53,53,49,57,32,112,117,98,108,105,99,32,107,101,121],"value":"EOF encountered in middle of X25519 public key"}
+]}

@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":86164276,"name":"clpdsaparameters.spuninitialized","sourcebytes":[34,80,34,32,67,97,110,110,111,116,32,66,101,32,85,110,105,110,105,116,105,97,108,105,122,101,100],"value":"\"P\" Cannot Be Uninitialized"},
+{"hash":86164420,"name":"clpdsaparameters.squninitialized","sourcebytes":[34,81,34,32,67,97,110,110,111,116,32,66,101,32,85,110,105,110,105,116,105,97,108,105,122,101,100],"value":"\"Q\" Cannot Be Uninitialized"},
+{"hash":86164644,"name":"clpdsaparameters.sguninitialized","sourcebytes":[34,71,34,32,67,97,110,110,111,116,32,66,101,32,85,110,105,110,105,116,105,97,108,105,122,101,100],"value":"\"G\" Cannot Be Uninitialized"}
+]}

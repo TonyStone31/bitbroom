@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":72278604,"name":"clprandom.sbuffernil","sourcebytes":[66,117,102,102,101,114,32,67,97,110,110,111,116,32,98,101,32,78,105,108],"value":"Buffer Cannot be Nil"},
+{"hash":135422293,"name":"clprandom.smaxvaluenegative","sourcebytes":[109,97,120,86,97,108,117,101,32,77,117,115,116,32,98,101,32,80,111,115,105,116,105,118,101],"value":"maxValue Must be Positive"},
+{"hash":154160453,"name":"clprandom.sinvalidminvalue","sourcebytes":[109,105,110,86,97,108,117,101,32,67,97,110,110,111,116,32,98,101,32,71,114,101,97,116,101,114,32,84,104,97,110,32,109,97,120,86,97,108,117,101],"value":"minValue Cannot be Greater Than maxValue"}
+]}

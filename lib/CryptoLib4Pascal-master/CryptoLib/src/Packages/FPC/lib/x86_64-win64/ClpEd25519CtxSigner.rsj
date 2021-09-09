@@ -1,0 +1,4 @@
+{"version":1,"strings":[
+{"hash":4068350,"name":"clped25519ctxsigner.snotinitializedforsigning","sourcebytes":[69,100,50,53,53,49,57,67,116,120,83,105,103,110,101,114,32,110,111,116,32,73,110,105,116,105,97,108,105,115,101,100,32,102,111,114,32,83,105,103,110,97,116,117,114,101,32,71,101,110,101,114,97,116,105,111,110,46],"value":"Ed25519CtxSigner not Initialised for Signature Generation."},
+{"hash":19930254,"name":"clped25519ctxsigner.snotinitializedforverifying","sourcebytes":[69,100,50,53,53,49,57,67,116,120,83,105,103,110,101,114,32,110,111,116,32,73,110,105,116,105,97,108,105,115,101,100,32,102,111,114,32,86,101,114,105,102,105,99,97,116,105,111,110],"value":"Ed25519CtxSigner not Initialised for Verification"}
+]}

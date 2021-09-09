@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":256971026,"name":"clpmultipliers.sinvalidcomputation","sourcebytes":[70,105,120,101,100,45,80,111,105,110,116,32,67,111,109,98,32,68,111,101,115,110,39,116,32,83,117,112,112,111,114,116,32,83,99,97,108,97,114,115,32,76,97,114,103,101,114,32,84,104,97,110,32,84,104,101,32,67,117,114,118,101,32,79,114,100,101,114],"value":"Fixed-Point Comb Doesn't Support Scalars Larger Than The Curve Order"},
+{"hash":25830850,"name":"clpmultipliers.scurveunknowngrouporder","sourcebytes":[78,101,101,100,32,67,117,114,118,101,32,87,105,116,104,32,75,110,111,119,110,32,71,114,111,117,112,32,79,114,100,101,114,44,32,34,99,117,114,118,101,34],"value":"Need Curve With Known Group Order, \"curve\""},
+{"hash":170940882,"name":"clpmultipliers.sincompatiblepoint","sourcebytes":[79,110,108,121,32,65,98,115,116,114,97,99,116,70,50,109,80,111,105,110,116,32,99,97,110,32,98,101,32,117,115,101,100,32,105,110,32,87,84,97,117,78,97,102,77,117,108,116,105,112,108,105,101,114],"value":"Only AbstractF2mPoint can be used in WTauNafMultiplier"}
+]}

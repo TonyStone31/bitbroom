@@ -1,0 +1,4 @@
+{"version":1,"strings":[
+{"hash":72558681,"name":"clpxsalsa20engine.snullkeyreinit","sourcebytes":[37,115,32,68,111,101,115,110,39,116,32,83,117,112,112,111,114,116,32,82,101,45,73,110,105,116,32,119,105,116,104,32,78,117,108,108,32,75,101,121],"value":"%s Doesn't Support Re-Init with Null Key"},
+{"hash":74354793,"name":"clpxsalsa20engine.sinvalidkeysize","sourcebytes":[37,115,32,82,101,113,117,105,114,101,115,32,97,32,50,53,54,32,98,105,116,32,75,101,121],"value":"%s Requires a 256 bit Key"}
+]}

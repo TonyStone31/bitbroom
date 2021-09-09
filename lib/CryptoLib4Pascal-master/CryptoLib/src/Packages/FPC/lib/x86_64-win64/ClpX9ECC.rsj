@@ -1,0 +1,7 @@
+{"version":1,"strings":[
+{"hash":86544371,"name":"clpx9ecc.sinconsistentkvalues","sourcebytes":[73,110,99,111,110,115,105,115,116,101,110,116,32,75,32,86,97,108,117,101,115],"value":"Inconsistent K Values"},
+{"hash":4901317,"name":"clpx9ecc.scurvenil","sourcebytes":[67,117,114,118,101],"value":"Curve"},
+{"hash":194873476,"name":"clpx9ecc.snotimplementedeccurve","sourcebytes":[84,104,105,115,32,84,121,112,101,32,111,102,32,69,67,67,117,114,118,101,32,105,115,32,110,111,116,32,73,109,112,108,101,109,101,110,116,101,100],"value":"This Type of ECCurve is not Implemented"},
+{"hash":217852052,"name":"clpx9ecc.sfieldidnil","sourcebytes":[70,105,101,108,100,73,68],"value":"FieldID"},
+{"hash":22977,"name":"clpx9ecc.sseqnil","sourcebytes":[83,101,113],"value":"Seq"}
+]}

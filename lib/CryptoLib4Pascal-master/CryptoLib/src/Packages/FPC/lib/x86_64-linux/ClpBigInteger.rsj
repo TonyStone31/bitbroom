@@ -1,0 +1,20 @@
+{"version":1,"strings":[
+{"hash":140928290,"name":"clpbiginteger.sdivisionbyzero","sourcebytes":[68,105,118,105,115,105,111,110,32,98,121,32,90,101,114,111,32,69,114,114,111,114],"value":"Division by Zero Error"},
+{"hash":167524037,"name":"clpbiginteger.smoduluspositive","sourcebytes":[77,111,100,117,108,117,115,32,109,117,115,116,32,98,101,32,80,111,115,105,116,105,118,101],"value":"Modulus must be Positive"},
+{"hash":82598574,"name":"clpbiginteger.snotrelativelyprime","sourcebytes":[78,117,109,98,101,114,115,32,110,111,116,32,82,101,108,97,116,105,118,101,108,121,32,80,114,105,109,101,46],"value":"Numbers not Relatively Prime."},
+{"hash":167332640,"name":"clpbiginteger.snegativevalue","sourcebytes":[67,97,110,110,111,116,32,98,101,32,67,97,108,108,101,100,32,111,110,32,86,97,108,117,101,32,60,32,48],"value":"Cannot be Called on Value < 0"},
+{"hash":72254228,"name":"clpbiginteger.snegativeexponent","sourcebytes":[78,101,103,97,116,105,118,101,32,69,120,112,111,110,101,110,116],"value":"Negative Exponent"},
+{"hash":226586837,"name":"clpbiginteger.sresulttoolarge","sourcebytes":[82,101,115,117,108,116,32,116,111,111,32,76,97,114,103,101],"value":"Result too Large"},
+{"hash":228956837,"name":"clpbiginteger.snegativebitposition","sourcebytes":[66,105,116,32,80,111,115,105,116,105,111,110,32,109,117,115,116,32,110,111,116,32,98,101,32,78,101,103,97,116,105,118,101],"value":"Bit Position must not be Negative"},
+{"hash":68116335,"name":"clpbiginteger.sinvalidbitaddress","sourcebytes":[66,105,116,32,65,100,100,114,101,115,115,32,108,101,115,115,32,116,104,97,110,32,90,101,114,111],"value":"Bit Address less than Zero"},
+{"hash":92994050,"name":"clpbiginteger.szerolengthbiginteger","sourcebytes":[90,101,114,111,32,108,101,110,103,116,104,32,66,105,103,73,110,116,101,103,101,114],"value":"Zero length BigInteger"},
+{"hash":171719605,"name":"clpbiginteger.sinvalidsign","sourcebytes":[73,110,118,97,108,105,100,32,83,105,103,110,32,86,97,108,117,101],"value":"Invalid Sign Value"},
+{"hash":13704677,"name":"clpbiginteger.snegativesizeinbits","sourcebytes":[115,105,122,101,73,110,66,105,116,115,32,109,117,115,116,32,98,101,32,110,111,110,45,110,101,103,97,116,105,118,101],"value":"sizeInBits must be non-negative"},
+{"hash":128127506,"name":"clpbiginteger.sinvalidbitlength","sourcebytes":[98,105,116,76,101,110,103,116,104,32,60,32,50],"value":"bitLength < 2"},
+{"hash":35456148,"name":"clpbiginteger.sinvalidbase","sourcebytes":[79,110,108,121,32,98,97,115,101,115,32,50,44,32,56,44,32,49,48,44,32,111,114,32,49,54,32,97,108,108,111,119,101,100],"value":"Only bases 2, 8, 10, or 16 allowed"},
+{"hash":151922179,"name":"clpbiginteger.sbadcharacterradix8","sourcebytes":[66,97,100,32,67,104,97,114,97,99,116,101,114,32,105,110,32,114,97,100,105,120,32,56,32,115,116,114,105,110,103,58,32,37,115],"value":"Bad Character in radix 8 string: %s"},
+{"hash":166602243,"name":"clpbiginteger.sbadcharacterradix2","sourcebytes":[66,97,100,32,67,104,97,114,97,99,116,101,114,32,105,110,32,114,97,100,105,120,32,50,32,115,116,114,105,110,103,58,32,37,115],"value":"Bad Character in radix 2 string: %s"},
+{"hash":178912404,"name":"clpbiginteger.sunsupportedbase","sourcebytes":[79,110,108,121,32,98,97,115,101,115,32,50,44,32,56,44,32,49,48,44,32,49,54,32,97,114,101,32,97,108,108,111,119,101,100],"value":"Only bases 2, 8, 10, 16 are allowed"},
+{"hash":146371749,"name":"clpbiginteger.sbigintegeroutofint32range","sourcebytes":[66,105,103,73,110,116,101,103,101,114,32,111,117,116,32,111,102,32,73,110,116,51,50,32,114,97,110,103,101],"value":"BigInteger out of Int32 range"},
+{"hash":179926101,"name":"clpbiginteger.sbigintegeroutofint64range","sourcebytes":[66,105,103,73,110,116,101,103,101,114,32,111,117,116,32,111,102,32,73,110,116,54,52,32,114,97,110,103,101],"value":"BigInteger out of Int64 range"}
+]}

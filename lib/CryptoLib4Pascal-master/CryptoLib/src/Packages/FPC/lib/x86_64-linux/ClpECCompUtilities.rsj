@@ -1,0 +1,4 @@
+{"version":1,"strings":[
+{"hash":171067218,"name":"clpeccomputilities.sinvalidrange","sourcebytes":[77,117,115,116,32,98,101,32,105,110,32,116,104,101,32,82,97,110,103,101,32,91,50,44,32,49,54,93,44,32,34,119,105,100,116,104,34],"value":"Must be in the Range [2, 16], \"width\""},
+{"hash":82322610,"name":"clpeccomputilities.sinvalidrange2","sourcebytes":[77,117,115,116,32,98,101,32,105,110,32,116,104,101,32,82,97,110,103,101,32,91,50,44,32,56,93,44,32,34,119,105,100,116,104,34],"value":"Must be in the Range [2, 8], \"width\""}
+]}

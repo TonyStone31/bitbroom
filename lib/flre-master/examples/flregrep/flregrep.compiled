@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="/usr/bin/fpc" Date="1594078105"/>
+  <Params Value=" -Mdelphi -Scghi -Cg -O1 -g -gl -l -vewnhibq -Fi/media/tony/storpart/SoftDev/LazarusProjects/BitBroom/lib/flre-master/src -Fi/media/tony/storpart/SoftDev/LazarusProjects/BitBroom/lib/flre-master/examples/common -Fu/media/tony/storpart/SoftDev/LazarusProjects/BitBroom/lib/flre-master/src -Fu/media/tony/storpart/SoftDev/LazarusProjects/BitBroom/lib/flre-master/examples/common -Fu/home/tony/.lazarus/lib/units/x86_64-linux/gtk2 -Fu/home/tony/.lazarus/lib/LCLBase/units/x86_64-linux -Fu/home/tony/.lazarus/lib/LazUtils/lib/x86_64-linux -Fu/home/tony/.lazarus/lib/units/x86_64-linux -Fu/media/tony/storpart/SoftDev/LazarusProjects/BitBroom/lib/flre-master/examples/flregrep/ -o/media/tony/storpart/SoftDev/LazarusProjects/BitBroom/lib/flre-master/examples/flregrep/flregrep -dLCL -dLCLgtk2 flregrep.dpr"/>
+  <Complete Value="False"/>
+</CONFIG>

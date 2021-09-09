@@ -1,0 +1,6 @@
+{"version":1,"strings":[
+{"hash":23556649,"name":"clped25519privatekeyparameters.seofinprivatekey","sourcebytes":[69,79,70,32,101,110,99,111,117,110,116,101,114,101,100,32,105,110,32,109,105,100,100,108,101,32,111,102,32,37,115,32,112,114,105,118,97,116,101,32,107,101,121],"value":"EOF encountered in middle of %s private key"},
+{"hash":236585997,"name":"clped25519privatekeyparameters.sunsupportedalgorithm","sourcebytes":[85,110,115,117,112,112,111,114,116,101,100,32,65,108,103,111,114,105,116,104,109],"value":"Unsupported Algorithm"},
+{"hash":243812301,"name":"clped25519privatekeyparameters.sctxnotnil","sourcebytes":[67,116,120,32,109,117,115,116,32,98,101,32,78,105,108,32,102,111,114,32,37,115,32,65,108,103,111,114,105,116,104,109],"value":"Ctx must be Nil for %s Algorithm"},
+{"hash":251976557,"name":"clped25519privatekeyparameters.smsglen","sourcebytes":[77,115,103,76,101,110,32,109,117,115,116,32,98,101,32,69,113,117,97,108,32,116,111,32,34,80,114,101,72,97,115,104,83,105,122,101,34,32,102,111,114,32,37,115,112,104,32,65,108,103,111,114,105,116,104,109],"value":"MsgLen must be Equal to \"PreHashSize\" for %sph Algorithm"}
+]}

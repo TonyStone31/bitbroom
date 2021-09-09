@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":161374146,"name":"clpsignersencodings.smalformedsignature","sourcebytes":[77,97,108,102,111,114,109,101,100,32,115,105,103,110,97,116,117,114,101,44,32,34,37,115,34],"value":"Malformed signature, \"%s\""},
+{"hash":188642978,"name":"clpsignersencodings.svalueoutofrange","sourcebytes":[86,97,108,117,101,32,111,117,116,32,111,102,32,114,97,110,103,101,44,32,34,37,115,34],"value":"Value out of range, \"%s\""},
+{"hash":164397218,"name":"clpsignersencodings.sinvalidencodinglength","sourcebytes":[69,110,99,111,100,105,110,103,32,104,97,115,32,105,110,99,111,114,114,101,99,116,32,108,101,110,103,116,104,44,32,34,37,115,34],"value":"Encoding has incorrect length, \"%s\""}
+]}

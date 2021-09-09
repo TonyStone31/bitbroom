@@ -1,0 +1,4 @@
+{"version":1,"strings":[
+{"hash":117999700,"name":"ubitcoinkey.sinvalideckeysize","sourcebytes":[84,104,101,32,115,105,122,101,32,111,102,32,97,110,32,69,67,32,107,101,121,32,115,104,111,117,108,100,32,98,101,32,37,100,32,98,117,116,32,65,67,111,117,110,116,32,105,115,32,37,100],"value":"The size of an EC key should be %d but ACount is %d"},
+{"hash":22903721,"name":"ubitcoinkey.sinvalideckey","sourcebytes":[73,110,118,97,108,105,100,32,69,67,32,75,101,121],"value":"Invalid EC Key"}
+]}

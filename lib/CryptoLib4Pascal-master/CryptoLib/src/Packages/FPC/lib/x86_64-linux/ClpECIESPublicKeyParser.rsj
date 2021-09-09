@@ -1,0 +1,4 @@
+{"version":1,"strings":[
+{"hash":262327726,"name":"clpeciespublickeyparser.ssenderpublickeyinvalid","sourcebytes":[83,101,110,100,101,114,39,115,32,80,117,98,108,105,99,32,75,101,121,32,73,110,118,97,108,105,100,46],"value":"Sender's Public Key Invalid."},
+{"hash":266703970,"name":"clpeciespublickeyparser.ssenderpublickeyinvalidpointencoding","sourcebytes":[83,101,110,100,101,114,39,115,32,80,117,98,108,105,99,32,75,101,121,32,104,97,115,32,73,110,118,97,108,105,100,32,80,111,105,110,116,32,69,110,99,111,100,105,110,103,32,34,37,120,34],"value":"Sender's Public Key has Invalid Point Encoding \"%x\""}
+]}

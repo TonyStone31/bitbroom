@@ -1,0 +1,4 @@
+{"version":1,"strings":[
+{"hash":85718402,"name":"clpbigintegers.sinvalidlength","sourcebytes":[83,116,97,110,100,97,114,100,32,76,101,110,103,116,104,32,69,120,99,101,101,100,101,100,44,32,34,110,34],"value":"Standard Length Exceeded, \"n\""},
+{"hash":197711090,"name":"clpbigintegers.sinvalidminvalue","sourcebytes":[34,109,105,110,34,32,109,97,121,32,110,111,116,32,98,101,32,103,114,101,97,116,101,114,32,116,104,97,110,32,34,109,97,120,34,34],"value":"\"min\" may not be greater than \"max\"\""}
+]}

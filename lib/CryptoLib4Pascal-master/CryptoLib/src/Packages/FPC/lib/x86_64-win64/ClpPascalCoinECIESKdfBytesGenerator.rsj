@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":28319196,"name":"clppascalcoinecieskdfbytesgenerator.soutputbuffertoosmall","sourcebytes":[79,117,116,112,117,116,32,66,117,102,102,101,114,32,116,111,111,32,83,109,97,108,108],"value":"Output Buffer too Small"},
+{"hash":227079682,"name":"clppascalcoinecieskdfbytesgenerator.skdfparameternotfound","sourcebytes":[75,68,70,32,80,97,114,97,109,101,116,101,114,115,32,82,101,113,117,105,114,101,100,32,70,111,114,32,75,68,70,32,71,101,110,101,114,97,116,111,114],"value":"KDF Parameters Required For KDF Generator"},
+{"hash":51517134,"name":"clppascalcoinecieskdfbytesgenerator.shashcannotnotproducesufficientdata","sourcebytes":[83,112,101,99,105,102,105,101,100,32,72,97,115,104,32,67,97,110,110,111,116,32,80,114,111,100,117,99,101,32,83,117,102,102,105,99,105,101,110,116,32,68,97,116,97,32,102,111,114,32,116,104,101,32,83,112,101,99,105,102,105,101,100,32,79,112,101,114,97,116,105,111,110,46],"value":"Specified Hash Cannot Produce Sufficient Data for the Specified Operation."}
+]}

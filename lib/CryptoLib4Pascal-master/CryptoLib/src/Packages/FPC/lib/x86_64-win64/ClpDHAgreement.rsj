@@ -1,0 +1,8 @@
+{"version":1,"strings":[
+{"hash":134632750,"name":"clpdhagreement.sdhpublickeywrongparameter","sourcebytes":[68,105,102,102,105,101,45,72,101,108,108,109,97,110,32,80,117,98,108,105,99,32,75,101,121,32,104,97,115,32,87,114,111,110,103,32,80,97,114,97,109,101,116,101,114,115,46],"value":"Diffie-Hellman Public Key has Wrong Parameters."},
+{"hash":187196691,"name":"clpdhagreement.snotdhprivatekeyparameters","sourcebytes":[68,72,69,110,103,105,110,101,32,69,120,112,101,99,116,115,32,68,72,80,114,105,118,97,116,101,75,101,121,80,97,114,97,109,101,116,101,114,115],"value":"DHEngine Expects DHPrivateKeyParameters"},
+{"hash":248514276,"name":"clpdhagreement.smessagenotinitialized","sourcebytes":[77,101,115,115,97,103,101,32,110,111,116,32,73,110,105,116,105,97,108,105,115,101,100],"value":"Message not Initialised"},
+{"hash":173616577,"name":"clpdhagreement.ssharedkeyinvalid","sourcebytes":[83,104,97,114,101,100,32,75,101,121,32,67,97,110,39,116,32,98,101,32,49],"value":"Shared Key Can't be 1"},
+{"hash":142745579,"name":"clpdhagreement.sdhpublickeyweak","sourcebytes":[68,105,102,102,105,101,45,72,101,108,108,109,97,110,32,80,117,98,108,105,99,32,75,101,121,32,105,115,32,87,101,97,107],"value":"Diffie-Hellman Public Key is Weak"},
+{"hash":223225004,"name":"clpdhagreement.sdhpublickeynil","sourcebytes":[68,72,32,80,117,98,108,105,99,32,75,101,121,32,80,97,114,97,109,101,116,101,114,32,67,97,110,110,111,116,32,98,101,32,78,105,108],"value":"DH Public Key Parameter Cannot be Nil"}
+]}

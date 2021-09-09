@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":142299058,"name":"clpsecurerandom.sunrecognisedprngalgorithm","sourcebytes":[85,110,114,101,99,111,103,110,105,115,101,100,32,80,82,78,71,32,65,108,103,111,114,105,116,104,109,58,32,37,115,32,34,97,108,103,111,114,105,116,104,109,34],"value":"Unrecognised PRNG Algorithm: %s \"algorithm\""},
+{"hash":63838738,"name":"clpsecurerandom.scannotbenegative","sourcebytes":[67,97,110,110,111,116,32,98,101,32,78,101,103,97,116,105,118,101,32,32,34,109,97,120,86,97,108,117,101,34],"value":"Cannot be Negative  \"maxValue\""},
+{"hash":6942629,"name":"clpsecurerandom.sinvalidmaxvalue","sourcebytes":[109,97,120,86,97,108,117,101,32,67,97,110,110,111,116,32,98,101,32,76,101,115,115,32,84,104,97,110,32,109,105,110,86,97,108,117,101],"value":"maxValue Cannot be Less Than minValue"}
+]}

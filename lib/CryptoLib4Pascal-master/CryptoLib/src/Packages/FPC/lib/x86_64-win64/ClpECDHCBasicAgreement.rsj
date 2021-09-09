@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":167479059,"name":"clpecdhcbasicagreement.swrongdomainparameter","sourcebytes":[69,67,68,72,67,32,80,117,98,108,105,99,32,75,101,121,32,104,97,115,32,87,114,111,110,103,32,68,111,109,97,105,110,32,80,97,114,97,109,101,116,101,114,115],"value":"ECDHC Public Key has Wrong Domain Parameters"},
+{"hash":112744627,"name":"clpecdhcbasicagreement.sinvalidagreementvalue","sourcebytes":[73,110,102,105,110,105,116,121,32,105,115,32,110,111,116,32,97,32,86,97,108,105,100,32,65,103,114,101,101,109,101,110,116,32,86,97,108,117,101,32,102,111,114,32,69,67,68,72,67],"value":"Infinity is not a Valid Agreement Value for ECDHC"},
+{"hash":26850979,"name":"clpecdhcbasicagreement.sinfinityinvalidpublickey","sourcebytes":[73,110,102,105,110,105,116,121,32,105,115,32,110,111,116,32,97,32,86,97,108,105,100,32,80,117,98,108,105,99,32,75,101,121,32,102,111,114,32,69,67,68,72,67],"value":"Infinity is not a Valid Public Key for ECDHC"}
+]}

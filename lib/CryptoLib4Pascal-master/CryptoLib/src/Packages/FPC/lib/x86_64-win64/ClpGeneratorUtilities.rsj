@@ -1,0 +1,6 @@
+{"version":1,"strings":[
+{"hash":64384350,"name":"clpgeneratorutilities.skeygeneratoralgorithmnotrecognised","sourcebytes":[75,101,121,71,101,110,101,114,97,116,111,114,32,34,37,115,34,32,110,111,116,32,82,101,99,111,103,110,105,115,101,100,46],"value":"KeyGenerator \"%s\" not Recognised."},
+{"hash":205233022,"name":"clpgeneratorutilities.skeygeneratoralgorithmnotsupported","sourcebytes":[75,101,121,71,101,110,101,114,97,116,111,114,32,34,37,115,34,32,40,32,34,37,115,34,32,41,32,110,111,116,32,83,117,112,112,111,114,116,101,100,46],"value":"KeyGenerator \"%s\" ( \"%s\" ) not Supported."},
+{"hash":161231054,"name":"clpgeneratorutilities.skeypairgeneratoralgorithmnotrecognised","sourcebytes":[75,101,121,80,97,105,114,71,101,110,101,114,97,116,111,114,32,34,37,115,34,32,110,111,116,32,82,101,99,111,103,110,105,115,101,100,46],"value":"KeyPairGenerator \"%s\" not Recognised."},
+{"hash":33686846,"name":"clpgeneratorutilities.skeypairgeneratoralgorithmnotsupported","sourcebytes":[75,101,121,80,97,105,114,71,101,110,101,114,97,116,111,114,32,34,37,115,34,32,40,32,34,37,115,34,32,41,32,110,111,116,32,83,117,112,112,111,114,116,101,100,46],"value":"KeyPairGenerator \"%s\" ( \"%s\" ) not Supported."}
+]}

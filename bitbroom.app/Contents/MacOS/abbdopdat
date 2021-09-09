@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIG>
+  <TApplication>
+    <frmMain frmMain_Top="1248" frmMain_Left="1805" frmMain_Width="800" frmMain_Height="600" chkBTCAdr_Checked="1" chkRegExp_Checked="0" sedtThreads_Value="1" chkBBsimEnbl_Checked="0" chkKeepAwake_Checked="0" chkPublicKey_Checked="1" chkBTCAdrComp_Checked="1" chkDirtyBroom_Checked="0" chkDiScanPlier_Checked="0" chkHideOnStart_Checked="0" chkPublicKeyComp_Checked="1" dlgFMLoadSource_FileName="" dlgFMsaveTarget_FileName="parsedoutput" chkAutoStartSearch_Checked="0" chkOnlySystemIdleRun_Checked="0" chkSystemStartLaunch_Checked="0" chkFMautoLoadCollider_Checked="0">
+      <lstBoxLottoTickets_Items Count="1" Item0="18 50 53 55 62 2"/>
+      <lstRegExps_Items Count="10" Item0="Lazarus" Item1="FreePascal" Item2="tonystone" Item3="nikkistone" Item4="bitbroom" Item5="broom" Item6="bitcoin" Item7="satoshi" Item8="doanldtrump" Item9="presidenttrump"/>
+    </frmMain>
+  </TApplication>
+</CONFIG>

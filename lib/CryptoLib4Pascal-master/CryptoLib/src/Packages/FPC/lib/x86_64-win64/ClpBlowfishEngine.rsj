@@ -1,0 +1,7 @@
+{"version":1,"strings":[
+{"hash":167409620,"name":"clpblowfishengine.sblowfishenginenotinitialised","sourcebytes":[66,108,111,119,102,105,115,104,32,69,110,103,105,110,101,32,110,111,116,32,73,110,105,116,105,97,108,105,115,101,100],"value":"Blowfish Engine not Initialised"},
+{"hash":144481618,"name":"clpblowfishengine.sinvalidparameterblowfishinit","sourcebytes":[73,110,118,97,108,105,100,32,80,97,114,97,109,101,116,101,114,32,80,97,115,115,101,100,32,116,111,32,66,108,111,119,102,105,115,104,32,73,110,105,116,32,45,32,34,37,115,34],"value":"Invalid Parameter Passed to Blowfish Init - \"%s\""},
+{"hash":33297252,"name":"clpblowfishengine.sinputbuffertooshort","sourcebytes":[73,110,112,117,116,32,66,117,102,102,101,114,32,116,111,111,32,83,104,111,114,116],"value":"Input Buffer too Short"},
+{"hash":28302692,"name":"clpblowfishengine.soutputbuffertooshort","sourcebytes":[79,117,116,112,117,116,32,66,117,102,102,101,114,32,116,111,111,32,83,104,111,114,116],"value":"Output Buffer too Short"},
+{"hash":219505934,"name":"clpblowfishengine.sinvalidkeylength","sourcebytes":[75,101,121,32,76,101,110,103,116,104,32,109,117,115,116,32,98,101,32,98,101,116,119,101,101,110,32,51,50,32,45,32,52,52,56,32,98,105,116,115,32,97,110,100,32,100,105,118,105,115,105,98,108,101,32,98,121,32,56,46],"value":"Key Length must be between 32 - 448 bits and divisible by 8."}
+]}

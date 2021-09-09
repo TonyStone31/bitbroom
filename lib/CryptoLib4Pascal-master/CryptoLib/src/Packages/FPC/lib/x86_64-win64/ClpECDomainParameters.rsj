@@ -1,0 +1,10 @@
+{"version":1,"strings":[
+{"hash":88728988,"name":"clpecdomainparameters.scurvenil","sourcebytes":[67,117,114,118,101,32,67,97,110,110,111,116,32,98,101,32,78,105,108],"value":"Curve Cannot be Nil"},
+{"hash":125870924,"name":"clpecdomainparameters.sscalarnil","sourcebytes":[83,99,97,108,97,114,32,67,97,110,110,111,116,32,98,101,32,78,105,108],"value":"Scalar Cannot be Nil"},
+{"hash":251816924,"name":"clpecdomainparameters.sgnil","sourcebytes":[71,32,67,97,110,110,111,116,32,98,101,32,78,105,108],"value":"G Cannot be Nil"},
+{"hash":81179874,"name":"clpecdomainparameters.sbigintegernotinitialized","sourcebytes":[66,105,103,73,110,116,101,103,101,114,32,78,111,116,32,73,110,105,116,105,97,108,105,122,101,100,32,34,37,115,34],"value":"BigInteger Not Initialized \"%s\""},
+{"hash":251818460,"name":"clpecdomainparameters.sqnil","sourcebytes":[81,32,67,97,110,110,111,116,32,98,101,32,78,105,108],"value":"Q Cannot be Nil"},
+{"hash":67753570,"name":"clpecdomainparameters.sqinfinity","sourcebytes":[80,111,105,110,116,32,97,116,32,73,110,102,105,110,105,116,121,32,34,81,34],"value":"Point at Infinity \"Q\""},
+{"hash":226831762,"name":"clpecdomainparameters.sqpointnotoncurve","sourcebytes":[80,111,105,110,116,32,78,111,116,32,111,110,32,67,117,114,118,101,32,34,81,34],"value":"Point Not on Curve \"Q\""},
+{"hash":185815357,"name":"clpecdomainparameters.sscalarinvalidrange","sourcebytes":[83,99,97,108,97,114,32,105,115,32,110,111,116,32,105,110,32,116,104,101,32,73,110,116,101,114,118,97,108,32,91,49,44,32,110,32,45,32,49,93],"value":"Scalar is not in the Interval [1, n - 1]"}
+]}

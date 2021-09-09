@@ -1,0 +1,4 @@
+{"version":1,"strings":[
+{"hash":4193348,"name":"clprandomnumbergenerator.sunknownalgorithm","sourcebytes":[85,110,107,110,111,119,110,32,82,97,110,100,111,109,32,71,101,110,101,114,97,116,105,111,110,32,65,108,103,111,114,105,116,104,109,32,82,101,113,117,101,115,116,101,100],"value":"Unknown Random Generation Algorithm Requested"},
+{"hash":92108204,"name":"clprandomnumbergenerator.srandomnumbergeneratoroutputbuffernil","sourcebytes":[82,97,110,100,111,109,32,78,117,109,98,101,114,32,71,101,110,101,114,97,116,111,114,32,79,117,116,112,117,116,32,66,117,102,102,101,114,32,67,97,110,110,111,116,32,66,101,32,78,105,108],"value":"Random Number Generator Output Buffer Cannot Be Nil"}
+]}

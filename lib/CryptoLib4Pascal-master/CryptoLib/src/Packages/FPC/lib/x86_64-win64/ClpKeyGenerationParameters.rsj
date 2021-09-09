@@ -1,0 +1,4 @@
+{"version":1,"strings":[
+{"hash":155753948,"name":"clpkeygenerationparameters.srandomnil","sourcebytes":[82,97,110,100,111,109,32,67,108,97,115,115,32,73,110,115,116,97,110,99,101,32,67,97,110,39,116,32,66,101,32,78,105,108],"value":"Random Class Instance Can't Be Nil"},
+{"hash":154677748,"name":"clpkeygenerationparameters.sinvalidstrength","sourcebytes":[83,116,114,101,110,103,116,104,32,77,117,115,116,32,66,101,32,71,114,101,97,116,101,114,32,84,104,97,110,32,90,101,114,111,32,66,117,116,32,87,97,115,32,71,105,118,101,110,32,37,100],"value":"Strength Must Be Greater Than Zero But Was Given %d"}
+]}

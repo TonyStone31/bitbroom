@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":195198612,"name":"clpargon2parametersgenerator.sargon2typeinvalid","sourcebytes":[83,101,108,101,99,116,101,100,32,65,114,103,111,110,50,84,121,112,101,32,105,115,32,73,110,118,97,108,105,100],"value":"Selected Argon2Type is Invalid"},
+{"hash":195421924,"name":"clpargon2parametersgenerator.sargon2versioninvalid","sourcebytes":[83,101,108,101,99,116,101,100,32,65,114,103,111,110,50,86,101,114,115,105,111,110,32,105,115,32,73,110,118,97,108,105,100],"value":"Selected Argon2Version is Invalid"},
+{"hash":81927540,"name":"clpargon2parametersgenerator.sargon2memorycosttypeinvalid","sourcebytes":[83,101,108,101,99,116,101,100,32,65,114,103,111,110,50,77,101,109,111,114,121,67,111,115,116,84,121,112,101,32,105,115,32,73,110,118,97,108,105,100],"value":"Selected Argon2MemoryCostType is Invalid"}
+]}

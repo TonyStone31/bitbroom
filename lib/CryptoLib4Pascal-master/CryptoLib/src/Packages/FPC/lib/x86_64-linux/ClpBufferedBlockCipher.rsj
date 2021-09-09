@@ -1,0 +1,8 @@
+{"version":1,"strings":[
+{"hash":173518065,"name":"clpbufferedblockcipher.sinvalidlength","sourcebytes":[67,97,110,39,116,32,72,97,118,101,32,97,32,78,101,103,97,116,105,118,101,32,73,110,112,117,116,32,76,101,110,103,116,104,33],"value":"Can't Have a Negative Input Length!"},
+{"hash":263447692,"name":"clpbufferedblockcipher.sinputnil","sourcebytes":[73,110,112,117,116,32,67,97,110,110,111,116,32,98,101,32,78,105,108],"value":"Input Cannot be Nil"},
+{"hash":262988412,"name":"clpbufferedblockcipher.sciphernil","sourcebytes":[67,105,112,104,101,114,32,67,97,110,110,111,116,32,98,101,32,78,105,108],"value":"Cipher Cannot be Nil"},
+{"hash":28302692,"name":"clpbufferedblockcipher.soutputbuffertoosmall","sourcebytes":[79,117,116,112,117,116,32,66,117,102,102,101,114,32,116,111,111,32,83,104,111,114,116],"value":"Output Buffer too Short"},
+{"hash":222865092,"name":"clpbufferedblockcipher.sdatanotblocksizealigned","sourcebytes":[68,97,116,97,32,110,111,116,32,66,108,111,99,107,32,83,105,122,101,32,65,108,105,103,110,101,100],"value":"Data not Block Size Aligned"},
+{"hash":140333145,"name":"clpbufferedblockcipher.soutputbuffertoosmallfordofinal","sourcebytes":[79,117,116,112,117,116,32,66,117,102,102,101,114,32,116,111,111,32,83,104,111,114,116,32,102,111,114,32,68,111,70,105,110,97,108,40,41],"value":"Output Buffer too Short for DoFinal()"}
+]}

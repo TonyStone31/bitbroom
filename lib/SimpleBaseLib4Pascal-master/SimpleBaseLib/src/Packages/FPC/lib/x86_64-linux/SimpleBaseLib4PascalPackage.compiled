@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="/media/tony/storpart/fpclazinstalls-trunk/fpc/bin/x86_64-linux/fpc.sh" Date="1629770143"/>
+  <Params Value=" -MObjFPC -Scghi -Cg -O4 -g -gl -l -vewnhibq -Fi/media/tony/storpart/SoftDev/LazarusProjects/BitBroom/lib/SimpleBaseLib4Pascal-master/SimpleBaseLib/src/Include -Fu/media/tony/storpart/SoftDev/LazarusProjects/BitBroom/lib/SimpleBaseLib4Pascal-master/SimpleBaseLib/src/Bases -Fu/media/tony/storpart/SoftDev/LazarusProjects/BitBroom/lib/SimpleBaseLib4Pascal-master/SimpleBaseLib/src/Interfaces -Fu/media/tony/storpart/SoftDev/LazarusProjects/BitBroom/lib/SimpleBaseLib4Pascal-master/SimpleBaseLib/src/Utils -Fu/media/tony/storpart/fpclazinstalls-trunk/lazarus/packager/units/x86_64-linux -Fu/media/tony/storpart/SoftDev/LazarusProjects/BitBroom/lib/SimpleBaseLib4Pascal-master/SimpleBaseLib/src/Packages/FPC/ -FU/media/tony/storpart/SoftDev/LazarusProjects/BitBroom/lib/SimpleBaseLib4Pascal-master/SimpleBaseLib/src/Packages/FPC/lib/x86_64-linux/ SimpleBaseLib4PascalPackage.pas"/>
+</CONFIG>

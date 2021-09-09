@@ -1,0 +1,14 @@
+=============================================
+  CodeTyphon Studio
+  Typhon IDE
+  Package Information file
+=============================================
+
+pl_OpenCL
+
+Version: 7.3.1 Date: 2020-09-28 21:40
+
+
+--------------------------------------------------
+
+cl.xml REF GIT hash: 535ad19d19edd43541284acb741a733ad982aa70

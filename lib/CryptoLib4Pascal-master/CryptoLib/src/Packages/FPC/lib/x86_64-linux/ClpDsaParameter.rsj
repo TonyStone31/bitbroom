@@ -1,0 +1,4 @@
+{"version":1,"strings":[
+{"hash":52567620,"name":"clpdsaparameter.sbadsequencesize","sourcebytes":[66,97,100,32,83,101,113,117,101,110,99,101,32,83,105,122,101,32,34,115,101,113,34,58,32,37,100],"value":"Bad Sequence Size \"seq\": %d"},
+{"hash":103600195,"name":"clpdsaparameter.sinvaliddsaparameter","sourcebytes":[73,110,118,97,108,105,100,32,68,115,97,80,97,114,97,109,101,116,101,114,58,32,37,115],"value":"Invalid DsaParameter: %s"}
+]}

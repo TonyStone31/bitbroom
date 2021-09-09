@@ -1,0 +1,120 @@
+object frmMain: TfrmMain
+  Left = 1680
+  Height = 425
+  Top = 1080
+  Width = 563
+  ActiveControl = DBGrid1
+  Caption = 'Report Background Generate'
+  ClientHeight = 425
+  ClientWidth = 563
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  ShowHint = True
+  LCLVersion = '2.0.12.0'
+  object DBNavigator1: TDBNavigator
+    Left = 8
+    Height = 25
+    Top = 8
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = DataSource1
+    Options = []
+    TabOrder = 0
+  end
+  object DBGrid1: TDBGrid
+    Left = 8
+    Height = 376
+    Top = 40
+    Width = 473
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'MemDataset1Field1'
+        FieldName = 'MemDataset1Field1'
+      end>
+    DataSource = DataSource1
+    TabOrder = 1
+  end
+  object butGenerate: TButton
+    Left = 488
+    Height = 25
+    Top = 8
+    Width = 67
+    Caption = 'Generate'
+    OnClick = butGenerateClick
+    TabOrder = 2
+  end
+  object butClose: TButton
+    Left = 487
+    Height = 25
+    Top = 391
+    Width = 68
+    Caption = 'Close'
+    OnClick = butCloseClick
+    TabOrder = 3
+  end
+  object butTest: TButton
+    Left = 487
+    Height = 25
+    Top = 152
+    Width = 70
+    Caption = 'Test...'
+    OnClick = butTestClick
+    TabOrder = 4
+  end
+  object WCThread1: TWCThread
+    Left = 80
+    Top = 160
+    object TaskGenerateReports: TTask
+      OnExecute = TaskGenerateReportsExecute
+      OnProgress = TaskGenerateReportsProgress
+      OnMessage = TaskGenerateReportsMessage
+      OnFinish = TaskGenerateReportsFinish
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = MemDataset1
+    Left = 328
+    Top = 134
+  end
+  object report: TfrReport
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    ShowProgress = False
+    StoreInForm = True
+    DataType = dtDataSet
+    OnGetValue = reportGetValue
+    Left = 296
+    Top = 264
+    ReportXML = '<?xml version="1.0" encoding="utf-8"?>'#10'<CONFIG>'#10'  <LazReport>'#10'    <Version Value="31"/>'#10'    <Title Value=""/>'#10'    <Subject Value=""/>'#10'    <KeyWords Value=""/>'#10'    <Comments Value=""/>'#10'    <ReportCreateDate Value="1899-12-30 00:00:00"/>'#10'    <ReportLastChange Value="2016-10-25 13:54:40"/>'#10'    <ReportVersionBuild Value=""/>'#10'    <ReportVersionMajor Value=""/>'#10'    <ReportVersionMinor Value=""/>'#10'    <ReportVersionRelease Value=""/>'#10'    <ReportAutor Value=""/>'#10'    <Script Value=""/>'#10'    <Pages>'#10'      <PrintToDefault Value="False"/>'#10'      <DoublePass Value="False"/>'#10'      <SelectedPrinter Value="EPSON-WF-7720-Series"/>'#10'      <PageCount Value="1"/>'#10'      <Page1>'#10'        <Name Value="Page1"/>'#10'        <ClassName Value="TfrPageReport"/>'#10'        <Visible Value="True"/>'#10'        <Width Value="595"/>'#10'        <Height Value="420"/>'#10'        <Script Value=""/>'#10'        <PgSize Value="11"/>'#10'        <Margins>'#10'          <left Value="0"/>'#10'          <Top Value="0"/>'#10'          <Right Value="0"/>'#10'          <Bottom Value="0"/>'#10'        </Margins>'#10'        <Orientation Value="poLandscape"/>'#10'        <UseMargins Value="True"/>'#10'        <PrintToPrevPage Value="False"/>'#10'        <ColCount Value="0"/>'#10'        <ColGap Value="0"/>'#10'        <LayoutOrder Value="loColumns"/>'#10'        <Object1>'#10'          <Name Value="MasterData1"/>'#10'          <ClassName Value="TfrBandView"/>'#10'          <Visible Value="True"/>'#10'          <Typ Value="gtBand"/>'#10'          <StreamMode Value="0"/>'#10'          <Size>'#10'            <Left Value="0"/>'#10'            <Top Value="44"/>'#10'            <Width Value="752"/>'#10'            <Height Value="384"/>'#10'          </Size>'#10'          <Flags Value="48"/>'#10'          <Data>'#10'            <Script Value=""/>'#10'            <GapX Value="0"/>'#10'            <GapY Value="0"/>'#10'          </Data>'#10'          <Tag Value=""/>'#10'          <FURLInfo Value=""/>'#10'          <Frames>'#10'            <Restrictions Value=""/>'#10'          </Frames>'#10'          <BandType Value="btMasterData"/>'#10'          <Condition Value=""/>'#10'          <DatasetStr Value="1"/>'#10'          <Child Value=""/>'#10'        </Object1>'#10'        <Object2>'#10'          <Name Value="Memo1"/>'#10'          <ClassName Value="TfrMemoView"/>'#10'          <Visible Value="True"/>'#10'          <Typ Value="gtMemo"/>'#10'          <StreamMode Value="0"/>'#10'          <Size>'#10'            <Left Value="300"/>'#10'            <Top Value="216"/>'#10'            <Width Value="132"/>'#10'            <Height Value="18"/>'#10'          </Size>'#10'          <Flags Value="3"/>'#10'          <FillColor Value="clNone"/>'#10'          <Frames>'#10'            <FrameColor Value="clBlack"/>'#10'            <FrameStyle Value="frsSolid"/>'#10'            <FrameWidth Value="1"/>'#10'            <FrameBorders Value=""/>'#10'            <Restrictions Value=""/>'#10'          </Frames>'#10'          <Data>'#10'            <Format Value="556"/>'#10'            <FormatStr Value=""/>'#10'            <Memo Value="[SERIAL]&#xA;"/>'#10'            <Script Value=""/>'#10'            <GapX Value="0"/>'#10'            <GapY Value="0"/>'#10'            <OnClick Value=""/>'#10'            <OnMouseEnter Value=""/>'#10'            <OnMouseLeave Value=""/>'#10'            <DetailReport Value=""/>'#10'            <ParagraphGap Value="0"/>'#10'            <LineSpacing Value="2"/>'#10'          </Data>'#10'          <Tag Value=""/>'#10'          <FURLInfo Value=""/>'#10'          <Font>'#10'            <Name Value="Arial"/>'#10'            <Size Value="10"/>'#10'            <Color Value="clBlack"/>'#10'            <Charset Value="0"/>'#10'            <Style Value=""/>'#10'          </Font>'#10'          <Highlight>'#10'            <FontStyle Value="2"/>'#10'            <FontColor Value="clBlack"/>'#10'            <FillColor Value="clWhite"/>'#10'            <HighlightStr Value=""/>'#10'          </Highlight>'#10'          <Alignment Value="taCenter"/>'#10'          <Layout Value="tlCenter"/>'#10'          <Angle Value="0"/>'#10'          <Justify Value="False"/>'#10'          <Cursor Value="0"/>'#10'        </Object2>'#10'        <Object3>'#10'          <Name Value="Bar1"/>'#10'          <ClassName Value="TfrBarcodeView"/>'#10'          <Visible Value="True"/>'#10'          <Typ Value="gtAddIn"/>'#10'          <StreamMode Value="0"/>'#10'          <Size>'#10'            <Left Value="300"/>'#10'            <Top Value="116"/>'#10'            <Width Value="130"/>'#10'            <Height Value="90"/>'#10'          </Size>'#10'          <Flags Value="1"/>'#10'          <Frames>'#10'            <FrameColor Value="clBlack"/>'#10'            <FrameStyle Value="frsSolid"/>'#10'            <FrameWidth Value="1"/>'#10'            <FrameBorders Value=""/>'#10'            <Restrictions Value=""/>'#10'          </Frames>'#10'          <Data>'#10'            <Memo Value="[SERIAL]&#xA;"/>'#10'            <GapX Value="0"/>'#10'            <GapY Value="0"/>'#10'          </Data>'#10'          <Tag Value=""/>'#10'          <FURLInfo Value=""/>'#10'          <BarCode Zoom="1" Angle="0" BarType="bcCode39" CheckSum="1" ShowText="1"/>'#10'        </Object3>'#10'        <ObjectCount Value="3"/>'#10'      </Page1>'#10'      <FVal>'#10'        <Count Value="0"/>'#10'      </FVal>'#10'      <ParentVars Value=""/>'#10'    </Pages>'#10'    <DetailReports>'#10'      <Count Value="0"/>'#10'    </DetailReports>'#10'  </LazReport>'#10'</CONFIG>'#10
+  end
+  object frImageExport1: TfrImageExport
+    Left = 504
+    Top = 336
+  end
+  object frBarCodeObject1: TfrBarCodeObject
+    Left = 509
+    Top = 60
+  end
+  object MemDataset1: TMemDataset
+    FieldDefs = <    
+      item
+        Name = 'MemDataset1Field1'
+        Attributes = [faRequired]
+        DataType = ftString
+        Size = 15
+      end>
+    Left = 222
+    Top = 111
+  end
+end

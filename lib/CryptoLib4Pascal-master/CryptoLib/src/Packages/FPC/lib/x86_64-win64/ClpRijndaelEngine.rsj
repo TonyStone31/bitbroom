@@ -1,0 +1,8 @@
+{"version":1,"strings":[
+{"hash":33297252,"name":"clprijndaelengine.sinputbuffertooshort","sourcebytes":[73,110,112,117,116,32,66,117,102,102,101,114,32,116,111,111,32,83,104,111,114,116],"value":"Input Buffer too Short"},
+{"hash":28302692,"name":"clprijndaelengine.soutputbuffertooshort","sourcebytes":[79,117,116,112,117,116,32,66,117,102,102,101,114,32,116,111,111,32,83,104,111,114,116],"value":"Output Buffer too Short"},
+{"hash":208744124,"name":"clprijndaelengine.sunsupportedblock","sourcebytes":[85,110,107,110,111,119,110,32,66,108,111,99,107,115,105,122,101,32,116,111,32,82,105,106,110,100,97,101,108],"value":"Unknown Blocksize to Rijndael"},
+{"hash":119536462,"name":"clprijndaelengine.sinvalidkeylength","sourcebytes":[75,101,121,32,76,101,110,103,116,104,32,110,111,116,32,49,50,56,47,49,54,48,47,49,57,50,47,50,50,52,47,50,53,54,32,98,105,116,115,46],"value":"Key Length not 128\/160\/192\/224\/256 bits."},
+{"hash":128860804,"name":"clprijndaelengine.srijndaelenginenotinitialised","sourcebytes":[82,105,106,110,100,97,101,108,32,69,110,103,105,110,101,32,110,111,116,32,73,110,105,116,105,97,108,105,115,101,100],"value":"Rijndael Engine not Initialised"},
+{"hash":266808146,"name":"clprijndaelengine.sinvalidparameterrijndaelinit","sourcebytes":[73,110,118,97,108,105,100,32,80,97,114,97,109,101,116,101,114,32,80,97,115,115,101,100,32,116,111,32,82,105,106,110,100,97,101,108,32,73,110,105,116,32,45,32,34,37,115,34],"value":"Invalid Parameter Passed to Rijndael Init - \"%s\""}
+]}
