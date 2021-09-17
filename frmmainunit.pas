@@ -8,13 +8,14 @@ uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ComCtrls, ExtCtrls,
   StdCtrls, btckeyfunctions, ClpEncoders, Clipbrd, XMLPropStorage, Menus,
   Buttons, Grids, SpinEx, SynEdit, SynHighlighterIni, SynHighlighterCpp,
-  WCThread, GifAnim, XMLConf, UBitcoinKey,
-  ClpDigestUtilities, ClpArrayUtils, USha256, StrUtils, Types,
-  LazFileUtils, LazUtf8, FileUtil, LCLIntf, csvreadwrite, bufstream, LMessages,
-  Calendar, ctypes, cl, jvclHTMLUtils, LCLType, ubarcodes;
+  WCThread, GifAnim, XMLConf, UBitcoinKey, ClpDigestUtilities, ClpArrayUtils,
+  USha256, StrUtils, Types, LazFileUtils, LazUtf8, FileUtil, LCLIntf,
+  csvreadwrite, bufstream, LMessages, Calendar, ctypes, cl, jvclHTMLUtils,
+  LCLType, ComboEx, CheckLst, Spin, ubarcodes, Math;
 
 const
   MSG_LOG = 1;
+  strDirtyBroom = '15WBDIRTYbroomFALSEpositiveAUTOadded';
 
 
 
@@ -71,7 +72,6 @@ type
     btnRNDpvtKeyBitCoinCash: TButton;
     btnStartStop: TBitBtn;
     btnBBwhatsBB: TButton;
-    Calendar1: TCalendar;
     chkAutoStartSearch: TCheckBox;
     chkBBsimEnbl: TCheckBox;
     chkBTCAdr: TCheckBox;
@@ -204,7 +204,7 @@ type
     GifAnim1: TGifAnim;
     imgBBlogo: TImage;
     ImageList1: TImageList;
-    dlgLoad: TOpenDialog;
+    dlgCLDRload: TOpenDialog;
     imgPoweredByLaz: TImage;
     Label1: TLabel;
     Label3: TLabel;
@@ -349,6 +349,7 @@ type
     qrCodeWIFCompressedEthereum: TBarcodeQR;
     ScrollBoxGenOptions: TScrollBox;
     sedtThreads: TSpinEditEx;
+    spnedtDirtyBroomWeight: TSpinEdit;
     SplitterFMhz: TSplitter;
     SplitterOutput: TSplitter;
     StatusBar: TStatusBar;
@@ -518,6 +519,7 @@ type
     procedure memmnuResetActvityLogClick(Sender: TObject);
     procedure mnuTPoverRideClick(Sender: TObject);
     procedure sedtThreadsKeyPress(Sender: TObject; var Key: char);
+    procedure spnedtDirtyBroomWeightChange(Sender: TObject);
     procedure StringGridFMButtonClick(Sender: TObject; aCol, aRow: integer);
     procedure StringGridFMDrawCell(Sender: TObject; aCol, aRow: integer;
       aRect: TRect; aState: TGridDrawState);
@@ -530,7 +532,7 @@ type
     procedure LogActivity(AcMessage: string);
     procedure ShowKeyPerSec(cnt: integer);
     //procedure SearchList(pkPKpkC: string);
-    procedure LoadFile(strFileName: string);
+    procedure cldrProcLoadFile(strFileName: string);
     procedure TaskFMExecute(const Sender: TTask; const Msg: word;
       var Param: variant);
     procedure TaskFMonMessage(const Sender: TTask; const Msg: word;
@@ -577,7 +579,7 @@ type
   public
     procedure CreateStartThreadSearcher;
     function FMdelimToValid(const UserDelim: string): string;
-    function delimToValidChar(const UserDelim: string): char;
+    function FMdelimToValidChar(const UserDelim: string): char;
     procedure LogBroomBallWin(var w1: string);
     procedure FMStartThread();
     procedure LogShowEdit(lstCntrl: TListBox; edtCntrl: TEdit);
@@ -637,8 +639,18 @@ var
   forcedCancel: boolean;
 
   dirtyBroomTest: boolean = False;
+  dirtyBroomWeight: int64;
+  dirtyBroomStatic: int64 = 10;
+  dirtyBroomRandMax: int64;
+
   BroomBallTickets: array of string;
   BroomBallSimRun: boolean = False;
+
+
+  // all generating metrics for keys per second
+  KCLast: int64 = 1;
+  inext: int64 = 0;
+  isum: int64 = 0;
 
   keysGenPerSec: int64;
   iCmpltd: int64;
@@ -667,10 +679,6 @@ var
   prgsMax: int64 = 0;
   prgsPos: int64 = 0;
 
-  // all generating metrics for keys per second
-  KCLast: int64 = 1;
-  inext: int64 = 0;
-  isum: int64 = 0;
 
 
   pballUserMod: boolean;
@@ -715,13 +723,13 @@ begin
   // for now i will just tell it that the private key is valid
   //if IsPRVkeyInputValid = True then
   //begin
-  //
+
   //  // write some code to get public key from this generated private key (brain wallet)
   //  // KeyPair := TbtcKeyFunctions.GenPubKeyFromPvtInput(TKeyType.SECP256K1);
   //  // now I am stuck... how do I tell this function what my input private key is?
-  //
+
   //  //TbtcKeyFunctions.GenPubKeyFromPvtInput();
-  //
+
   //end;
 
 end;
@@ -741,13 +749,11 @@ var
   Address, PubKey, PubKeyCo, AddressCo, Hash160, Hash160Comp: string;
 begin
 
-
-
   TbtcKeyFunctions.GetPublicKeyDetailsKPE(edtPvtKeyBitCoin.Text,
-    Address, PubKey, PubKeyCo, AddressCo,Hash160,Hash160Comp);
+    Address, PubKey, PubKeyCo, AddressCo, Hash160, Hash160Comp);
 
   memKPEstepBystep.Lines.Add(Hash160Comp);
-  memKPEstepBystep.lines.add(Hash160);
+  memKPEstepBystep.Lines.add(Hash160);
   edtaddressBitCoin.Text := Address;
   qrCodeAddressBitCoin.Text := Address;
 
@@ -1097,7 +1103,7 @@ begin
 end;
 
 
-function TfrmMain.delimToValidChar(const UserDelim: string): char;
+function TfrmMain.FMdelimToValidChar(const UserDelim: string): char;
 var
   ValidDelim: char;
 begin
@@ -1140,11 +1146,12 @@ begin
   with lstBroomBallWins do
   begin
     items.Add('After playing 2 games per week for a total of ' +
-      formatfloat(',# weeks', Weeks2Win) + ' (' + formatfloat(',# Years', Years2Win) +
-      ')' + sLineBreak +
-      'BitBroom is a solid investment to solve the BitCoin Puzzle Transactions!!!' +
-      sLineBreak + 'It would have only cost you about ' +
-      FormatCurr('$,0', Cost) + sLineBreak + sLineBreak);
+      formatfloat(',# weeks', Weeks2Win) + ' (' +
+      formatfloat(',# Years', Years2Win) + ')');
+    items.Add('BitBroom is a solid investment to solve the BitCoin Puzzle Transactions!!!');
+    items.add('It would have only cost you about <b>' +
+      FormatCurr('$,0', Cost) + '</b>');
+    items.Add('');
     ItemIndex := items.Count - 1;
     items.SaveToFile('abbdBBdat');
   end;
@@ -1154,12 +1161,10 @@ end;
 procedure TfrmMain.FMStartThread();
 
 begin
-
   FMthrdPr := TWCThread.Create(Self);
   FMthrdPr.Name := 'FMthrdPr1';
   FMthrdPr.AutoDestroy := True;
   FMthrdPr.FreeOnRelease;
-
 
   FMtask := TTask.Create(FMthrdPr);
   FMtask.Name := 'FMtask1';
@@ -1170,7 +1175,6 @@ begin
   FMtask.OnProgress := @TaskFMonProgress;
 
   //create list of commands in public stringlist for thread to parse
-
   //FMtask.PostMessage();
   FMTask.Start;
 
@@ -1359,7 +1363,7 @@ Possible need to use CriticalSections for some of the global Vars }
     if lpCmdSplit[2] = 'laztab' then
       Parser.Delimiter := #9
     else
-      Parser.Delimiter := delimToValidChar(lpCmdSplit[2]);
+      Parser.Delimiter := FMdelimToValidChar(lpCmdSplit[2]);
 
     Parser.SetSource(RBS);
 
@@ -2097,10 +2101,10 @@ end;
 procedure TfrmMain.btnLoadCheckClick(Sender: TObject);
 begin
 
-  if dlgLoad.Execute then
+  if dlgCLDRload.Execute then
   begin
     screen.Cursor := crHourGlass;
-    LoadFile(dlgLoad.FileName);
+    cldrProcLoadFile(dlgCLDRload.FileName);
     Screen.Cursor := crDefault;
   end;
 
@@ -2125,12 +2129,13 @@ begin
   edtRegEx.Text := '';
 end;
 
-procedure TfrmMain.LoadFile(strFileName: string);
+procedure TfrmMain.cldrProcLoadFile(strFileName: string);
 var
   fileName: Text;
   fileLineCount: integer = 0;
   lnData: string;
   badline: boolean;
+  foundDirtyBroom: boolean = False;
 begin
   SetLength(chk2Sort, 0);
 
@@ -2157,6 +2162,8 @@ begin
     end;
     if not badline then
     begin
+      if lnData = strDirtyBroom then
+        foundDirtyBroom := True;
       SetLength(chk2Sort, length(chk2Sort) + 1);
       chk2Sort[fileLineCount] := lnData;
       Inc(fileLineCount, 1);
@@ -2164,6 +2171,13 @@ begin
 
   end;
 
+  // just inserting the false positive test into the list of addresses to search
+  if not foundDirtyBroom then
+  begin
+    SetLength(chk2Sort, length(chk2Sort) + 1);
+    chk2Sort[fileLineCount] := strDirtyBroom;
+    //ShowMessage('added the dirty broom test to search list' + sLineBreak + strDirtyBroom);
+  end;
 
   CloseFile(fileName);
   XMLConfig1.SetValue('CollisionList', strFileName);
@@ -2387,6 +2401,25 @@ begin
   end;
 end;
 
+procedure TfrmMain.spnedtDirtyBroomWeightChange(Sender: TObject);
+var
+  invertedWeight: int64;
+begin
+  invertedWeight := 100000000000 div
+    (spnedtDirtyBroomWeight.Value * spnedtDirtyBroomWeight.Value *
+    spnedtDirtyBroomWeight.Value * spnedtDirtyBroomWeight.Value *
+    spnedtDirtyBroomWeight.Value * spnedtDirtyBroomWeight.Value);
+  //LogActivity(formatfloat(',#', invertedWeight));
+  dirtyBroomRandMax := invertedWeight;
+  dirtyBroomStatic := Random(dirtyBroomRandMax);
+
+  if chkDirtyBroom.Checked then
+  begin
+    LogActivity('Dirty Broom Test-Point: ' + formatfloat(',#', dirtyBroomStatic));
+  end;
+
+end;
+
 procedure TfrmMain.FMreloadSG;
 var
   i: integer;
@@ -2447,21 +2480,19 @@ begin
 
 
 
-    if incPubKey then
-    begin
-      //PubKey1 := THex.Encode(KeyInThread.PublicKey.Q.Normalize.GetEncoded(false));
-      //Sender.PostMessage(1, 'TEST: ' + IntToStr(iTmpKeyCount) + '  ' + THex.Encode(randPrvKey1) + ',' + PubKey1);
-      PubKeyAB := KeyInThread.PublicKey.Q.Normalize.GetEncoded(False);
-      PubKey1 := THex.Encode(PubKeyAB);
+    //if incPubKey then
+    //begin
+    PubKeyAB := KeyInThread.PublicKey.Q.Normalize.GetEncoded(False);
+    PubKey1 := THex.Encode(PubKeyAB);
 
-      if BinSearch(chk2Sort, PubKey1) > -1 then
-      begin
-        Sender.PostMessage(1, 'MATCH: PK  ' + THex.Encode(randPrvKey1) + ',' + PubKey1);
-        Sender.WaitMs(5000);
-      end;
-      Inc(iTmpKeyCount, 1);
-      Inc(i, 1);
-    end;
+    //  if BinSearch(chk2Sort, PubKey1) > -1 then
+    //  begin
+    //    Sender.PostMessage(1, 'MATCH: PK  ' + THex.Encode(randPrvKey1) + ',' + PubKey1);
+    //    Sender.WaitMs(5000);
+    //  end;
+    //  Inc(iTmpKeyCount, 1);
+    //  Inc(i, 1);
+    //end;
 
     if incBTCAddress then
     begin
@@ -2490,36 +2521,37 @@ begin
             // +regExSlst[iRegXLoop]+
             strSpos := PosCI(regExSlst[iRegXLoop], Address1);
             Insert('<b>', Address1, strSpos);
-            strEpos := PosCI(regExSlst[iRegXLoop], Address1) + Length(regExSlst[iRegXLoop]);
+            strEpos := PosCI(regExSlst[iRegXLoop], Address1) +
+              Length(regExSlst[iRegXLoop]);
             Insert('</b>', Address1, strEpos);
 
             Sender.PostMessage(1, 'VANITY: (UN-COMPRESSED ' +
               regExSlst[iRegXLoop] + ')' + THex.Encode(randPrvKey1) +
               ',' + Address1 + ',');
+            Sender.WaitMs(5000);
           end;
         end;
       end;
-
-      //Inc(i, 1);
-    end;
-
-
-
-
-    if incPubKeyComp then
-    begin
-      PubKeyCompAB := KeyInThread.PublicKey.Q.Normalize.GetEncoded(True);
-      PubKeyComp1 := THex.Encode(PubKeyCompAB);
-
-      if BinSearch(chk2Sort, PubKeyComp1) > -1 then
-      begin
-        Sender.PostMessage(1, 'MATCH: PKC  ' + THex.Encode(randPrvKey1) +
-          ',' + PubKeyComp1);
-        Sender.WaitMs(5000);
-      end;
       Inc(iTmpKeyCount, 1);
-      Inc(i, 1);
     end;
+
+
+
+
+    //if incPubKeyComp then
+    //begin
+    PubKeyCompAB := KeyInThread.PublicKey.Q.Normalize.GetEncoded(True);
+    PubKeyComp1 := THex.Encode(PubKeyCompAB);
+
+    //  if BinSearch(chk2Sort, PubKeyComp1) > -1 then
+    //  begin
+    //    Sender.PostMessage(1, 'MATCH: PKC  ' + THex.Encode(randPrvKey1) +
+    //      ',' + PubKeyComp1);
+    //    Sender.WaitMs(5000);
+    //  end;
+    //  Inc(iTmpKeyCount, 1);
+    //  Inc(i, 1);
+    //end;
 
     if incBTCAddressC then
     begin
@@ -2547,16 +2579,17 @@ begin
           begin
             strSpos := PosCI(regExSlst[iRegXLoop], AddressComp1);
             Insert('<b>', AddressComp1, strSpos);
-            strEpos := PosCI(regExSlst[iRegXLoop], AddressComp1) + Length(
-              regExSlst[iRegXLoop]);
+            strEpos := PosCI(regExSlst[iRegXLoop], AddressComp1) +
+              Length(regExSlst[iRegXLoop]);
             Insert('</b>', AddressComp1, strEpos);
             Sender.PostMessage(1, 'VANITY: (COMPRESSED ' +
               regExSlst[iRegXLoop] + ')  ' + THex.Encode(randPrvKey1) +
               ',' + AddressComp1 + ',');
+            Sender.WaitMs(5000);
           end;
         end;
       end;
-      // Inc(i, 1);
+      Inc(iTmpKeyCount, 1);
     end;
 
     /////////////////////////////////////////////////////////////////
@@ -2565,11 +2598,11 @@ begin
     if dirtyBroomTest then
     begin
 
-      RandTest := random(99999999999);
-      if RandTest = 19843492321 then
+      RandTest := random(dirtyBroomRandMax);
+      if RandTest = dirtyBroomStatic then
       begin // artificial address it will find
-        Address1 := '15WBDIRTYBROOMTESTMAKESURETHISINFILE';
-        AddressComp1 := 'Dirty Broom Handle Algorithm';
+        Address1 := strDirtyBroom;
+        AddressComp1 := 'Dirty Broom Handle Algorithm ' + IntToStr(dirtyBroomStatic);
       end;
 
       if BinSearch(chk2Sort, Address1) > -1 then
@@ -2578,7 +2611,7 @@ begin
           ',' + Address1 + ',' + AddressComp1);
         Sender.WaitMs(5000);
       end;
-      //Inc(iTmpKeyCount, 1);
+
     end;
     /////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////
@@ -2605,31 +2638,29 @@ begin
         begin
           Sender.PostMessage(1, 'BROOMBALL: ' + '<font color="#33cc00"><b>' +
             brWinS + '</font></b>  ');
-          Sender.WaitMs(2000);
+          Sender.WaitMs(5000);
         end;
       end;
-      // Inc(iTmpKeyCount, 1);
+
     end;
 
 
     iTimingNOW := GetTickCount64;
     if (iTimingNOW - iTimingLAST) >= 1000 then
     begin
-      Sender.PostMessage(1, Sender.Owner.Name + ' Try: ' + IntToStr(i) +
+      Sender.PostMessage(1, Sender.Owner.Name + ' Try: ' + IntToStr(iTmpKeyCount) +
         ' ' + THex.Encode(randPrvKey1) + ',' + PubKey1 + ',' +
         PubKeyComp1 + ',' + Address1 + ',' + AddressComp1);
       Sender.PostMessage(1, 'COUNT: ' + IntToStr(iTmpKeyCount));
       iTmpKeyCount := 0;
       iTimingLAST := GetTickCount64;
-
-      // sender.WaitMs(1);
+      //Sender.WaitMs(5);
     end;
 
     PubKey1 := '';
     PubKeyComp1 := '';
     Address1 := '';
     AddressComp1 := '';
-
   until (Sender.Terminated);
 
 end;
@@ -2683,8 +2714,8 @@ begin
   if (pos('BROOMBALL: ', w1) > 0) then
   begin
     LogBroomBallWin(w1);
-    LogActivity('<font size="12"><b>B</b></font>room<font size="12"><b><font color="#ff0000">B</font></b></font><i><font color="#ff0000">ALL</font></i> Simulator win logged after ' +
-      formatfloat(',# Tries!', iCmpltd));
+    LogActivity(
+      '<font size="12"><b>B</b></font>room<font size="12"><b><font color="#ff0000">B</font></b></font><i><font color="#ff0000">ALL</font></i> Simulator win logged after ' + formatfloat(',# Tries!', iCmpltd));
 
   end;
 
@@ -2946,7 +2977,7 @@ begin
   forcedCancel := True;
   iAllTime := StrToInt64(XMLConfig1.GetValue('alltime', '0'));
 
-  dlgLoad.FileName := XMLConfig1.GetValue('CollisionList', '');
+  dlgCLDRload.FileName := XMLConfig1.GetValue('CollisionList', '');
 
   chkBTCAdrChange(self);
   chkBTCAdrCompChange(self);
@@ -2962,10 +2993,10 @@ begin
   end;
 
   LogActivity('<i>BitBroom</i> Session Has <b><i><font color="#33cc00">Started</font></i></b>');
-  if FileExists(dlgLoad.FileName) then
+  if FileExists(dlgCLDRload.FileName) then
   begin
     LogActivity('<font color="#3333ff">Loading search items from previous session</font>');
-    LoadFile(dlgLoad.FileName);
+    cldrProcLoadFile(dlgCLDRload.FileName);
 
   end;
 
@@ -2989,6 +3020,7 @@ begin
   //bolStartHidden:=chkHideOnStart.Checked;
 
   procHiderMakeBtns;// create private key hider buttons
+  spnedtDirtyBroomWeightChange(Sender); // get dirtybroom random static set
   OCLProbe(Sender);
 
 end;
@@ -3248,7 +3280,7 @@ end;
 
 //function ByteArrayToHexString(input: TBytes): string;
 //var
-//  index: Int32;
+//  index: Int32;     HIDDEN FLOATING EDIT
 //begin
 //  Result := '';
 //  for index := System.Low(input) to System.High(input) do

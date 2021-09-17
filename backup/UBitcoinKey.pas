@@ -71,6 +71,8 @@ type
 
     function GeneratePublicAddress(Compressed: boolean = True): string;
     function GeneratePublicAddress160(Compressed: boolean): string;
+    function GeneratePublicAddress25bBin(Compressed: boolean): string;
+
 
     function GenerateWIFPrivateKey(Compressed: boolean = True): string;
 
@@ -80,6 +82,10 @@ type
     class property SecureRandom: ISecureRandom read FSecureRandom;
 
     class function GenerateValidRandomBytesForPrivateKey(): TBytes; static;
+
+  private
+  function ByteArrayToHexString(input: TBytes): string;
+
   end;
 
 implementation
@@ -177,9 +183,7 @@ begin
 
   WithVersionByte := TArrayUtils.Concatenate(THex.Decode(VersionByte), Hash);
 
-
-
-  //Hash := DoubleSHA256Hash(WithVersionByte);
+  Hash := DoubleSHA256Hash(WithVersionByte);
   Checksum := System.Copy(Hash, 0, 4);
 
 
@@ -191,11 +195,41 @@ end;
 
 
 
+function ByteArrayToHexString(input: TBytes): string;
+var
+  index: Int32;
+begin
+  Result := '';
+  for index := System.Low(input) to System.High(input) do
+  begin
+    if index = 0 then
+    begin
+      Result := Result + IntToHex(input[index], 2);
+    end
+    else
+    begin
+      Result := Result + IntToHex(input[index], 2);
+    end;
+  end;
+  Result := Result;
+end;
 
 
 
+ function TBitcoinKey.GeneratePublicAddress25bBin(Compressed: boolean): string;
+var
+  Hash, WithVersionByte, Checksum: TBytes;
+begin
+  Hash := TDigestUtilities.CalculateDigest('RIPEMD160',
+  TDigestUtilities.CalculateDigest('SHA256',
+  FECKey.PublicKey.Q.GetEncoded(Compressed)));
 
-
+  WithVersionByte := TArrayUtils.Concatenate(THex.Decode(VersionByte), Hash);
+  Hash := DoubleSHA256Hash(WithVersionByte);
+  Checksum := System.Copy(Hash, 0, 4);
+  //byteto ?
+  Result := TBase58.Encode(TArrayUtils.Concatenate(WithVersionByte, Checksum));
+end;
 
 
 

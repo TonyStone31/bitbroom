@@ -25,11 +25,11 @@ begin
   frmSplash.Show;
   Application.ProcessMessages;
   frmSplash.Update;
-  Application.ProcessMessages;
-  sleep(200);
-
-
+  sleep(1500);
   Application.CreateForm(TfrmMain, frmMain);
+
+  Application.ProcessMessages;
+
   frmSplash.Close;
   frmSplash.Release;
 
