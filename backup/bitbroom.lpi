@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <MainUnit Value="0"/>
       <Title Value="BitBroom - BitCoin Address Utilities"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
@@ -21,7 +23,7 @@
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="3"/>
       <RevisionNr Value="3"/>
-      <BuildNr Value="42"/>
+      <BuildNr Value="46"/>
       <Attributes pvaDebug="True" pvaPreRelease="True" pvaPrivateBuild="True" pvaSpecialBuild="True"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -35,7 +37,6 @@
     </PublishOptions>
     <RunParams>
       <FormatVersion Value="2"/>
-      <Modes Count="0"/>
     </RunParams>
     <RequiredPackages Count="11">
       <Item1>
@@ -72,7 +73,7 @@
         <PackageName Value="LCL"/>
       </Item11>
     </RequiredPackages>
-    <Units Count="8">
+    <Units Count="9">
       <Unit0>
         <Filename Value="bitbroom.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -114,6 +115,10 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="jvclHTMLUtils"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="lib/wthread-master/threading.lpk"/>
+        <IsPartOfProject Value="True"/>
+      </Unit8>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

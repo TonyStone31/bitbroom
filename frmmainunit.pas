@@ -7,16 +7,22 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ComCtrls, ExtCtrls,
   StdCtrls, btckeyfunctions, ClpEncoders, Clipbrd, XMLPropStorage, Menus,
-  Buttons, Grids, SpinEx, SynEdit, SynHighlighterIni, SynHighlighterCpp,
+  Buttons, Grids, SpinEx, SynEdit,
   WCThread, GifAnim, XMLConf, UBitcoinKey, ClpDigestUtilities, ClpArrayUtils,
   USha256, StrUtils, Types, LazFileUtils, LazUtf8, FileUtil, LCLIntf,
-  csvreadwrite, bufstream, LMessages, Calendar, ctypes, cl, jvclHTMLUtils,
-  LCLType, ComboEx, CheckLst, Spin, ubarcodes, Math;
+  csvreadwrite, bufstream, LMessages, ctypes, cl, jvclHTMLUtils,
+  LCLType, Spin, ubarcodes, Math;
 
 const
   MSG_LOG = 1;
   strDirtyBroom = '15WBDIRTYbroomFALSEpositiveAUTOadded';
 
+  // File Names For logs
+  fnCNSTcollision = 'abbdCLdat';
+  fnCNSTvanity = 'abbdVdat';
+  fnCNSTactivity = 'abbdALdat';
+  fnCNSTbroomBall = 'abbdBBdat';
+  fnCNSTfmSG = 'abbdFMsgdat';
 
 
 type
@@ -91,6 +97,9 @@ type
     chkSystemStartLaunch: TCheckBox;
     ComboDevType: TComboBox;
     ComboPlatform: TComboBox;
+    dlgCLDRload: TOpenDialog;
+    dlgFMLoadSource: TOpenDialog;
+    dlgFMsaveTarget: TSaveDialog;
     edAddressBitCoinSV: TLabeledEdit;
     edtListFloater: TEdit;
     edtmemCollisions1: TEdit;
@@ -204,7 +213,6 @@ type
     GifAnim1: TGifAnim;
     imgBBlogo: TImage;
     ImageList1: TImageList;
-    dlgCLDRload: TOpenDialog;
     imgPoweredByLaz: TImage;
     Label1: TLabel;
     Label3: TLabel;
@@ -235,31 +243,34 @@ type
     MenuItem17: TMenuItem;
     MenuItem18: TMenuItem;
     MenuItem19: TMenuItem;
+    MenuItem2: TMenuItem;
     MenuItem20: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
+    MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
-    mnuResetActvityLog1: TMenuItem;
-    mnuVersionInfo: TMenuItem;
-    mnuStartStop: TMenuItem;
-    mnuUseIdle: TMenuItem;
-    MenuItem5: TMenuItem;
-    mnuTrayExit: TMenuItem;
-    MenuItem7: TMenuItem;
     mnuClearBroomBall: TMenuItem;
     mnuResetActvityLog: TMenuItem;
-    mnuTPoverRide: TMenuItem;
-    MenuItem2: TMenuItem;
-    mnuTPidle: TMenuItem;
-    mnuTPlowest: TMenuItem;
-    mnuTPlower: TMenuItem;
-    mnuTPnormal: TMenuItem;
+    mnuResetActvityLog1: TMenuItem;
+    mnuResetCollisionLog: TMenuItem;
+    mnuResetVanityLog: TMenuItem;
+    mnuStartStop: TMenuItem;
     mnuTPhigher: TMenuItem;
     mnuTPhighest: TMenuItem;
+    mnuTPidle: TMenuItem;
+    mnuTPlower: TMenuItem;
+    mnuTPlowest: TMenuItem;
+    mnuTPnormal: TMenuItem;
+    mnuTPoverRide: TMenuItem;
     mnuTPtimecritical: TMenuItem;
-    dlgFMLoadSource: TOpenDialog;
+    mnuTrayExit: TMenuItem;
+    mnuUseIdle: TMenuItem;
+    mnuVanityRemoveSelection: TMenuItem;
+    mnuVanRemoveSelection: TMenuItem;
+    mnuVersionInfo: TMenuItem;
     panelFMbottom: TPanel;
     PanelPrivateDetailsBitCoinSV: TPanel;
     PanelPrivateDetailsDogeCoin: TPanel;
@@ -304,11 +315,13 @@ type
     pgControlMain: TPageControl;
     pgControlOutput: TPageControl;
     pbarFMprocessing: TProgressBar;
-    pumMemBroomBallWins: TPopupMenu;
-    pumTray: TPopupMenu;
-    pumLottoTicketList: TPopupMenu;
     pumActivityLog: TPopupMenu;
+    pumCollisionLog: TPopupMenu;
+    pumLottoTicketList: TPopupMenu;
+    pumMemBroomBallWins: TPopupMenu;
     pumThreads: TPopupMenu;
+    pumTray: TPopupMenu;
+    pumVanityLog: TPopupMenu;
     qrCodeAddressBitCoin: TBarcodeQR;
     qrCodeAddressBitCoinCash: TBarcodeQR;
     qrCodeAddressBitCoinGold: TBarcodeQR;
@@ -345,18 +358,15 @@ type
     qrCodeWIFCompressedLiteCoin: TBarcodeQR;
     qrCodeWIFCompressedBitCoinSV: TBarcodeQR;
     qrCodeWIFCompressedDogeCoin: TBarcodeQR;
-    dlgFMsaveTarget: TSaveDialog;
     qrCodeWIFCompressedEthereum: TBarcodeQR;
     ScrollBoxGenOptions: TScrollBox;
     sedtThreads: TSpinEditEx;
+    Splitter1: TSplitter;
     spnedtDirtyBroomWeight: TSpinEdit;
     SplitterFMhz: TSplitter;
-    SplitterOutput: TSplitter;
     StatusBar: TStatusBar;
     StringGridFM: TStringGrid;
-    SynCppSyn1: TSynCppSyn;
     SynEdit1: TSynEdit;
-    SynIniSyn1: TSynIniSyn;
     tabAbout: TTabSheet;
     tabActivity: TTabSheet;
     tabAddressEngine: TTabSheet;
@@ -367,6 +377,7 @@ type
     tabCollisions: TTabSheet;
     tabOpenCLide: TTabSheet;
     TabSheet1: TTabSheet;
+    tabKSPmap: TTabSheet;
     tabVanityMatches: TTabSheet;
     tabBBwins: TTabSheet;
     TabSheetEthereum: TTabSheet;
@@ -423,16 +434,16 @@ type
     TaskFMProcessFile: TTask;
     taskWriteParsed: TTask;
     taskReadParse: TTask;
-    tmrLstEdtTimeOut: TTimer;
-    tmrHider: TTimer;
     tmrBBrapidQP: TTimer;
     tmrFlashMatch: TTimer;
+    tmrHider: TTimer;
+    tmrLstEdtTimeOut: TTimer;
     tmrReRandom: TTimer;
     tmrKeyCount: TTimer;
     tmrShowWork: TTimer;
+    thrdFMprocessor: TWCThread;
     TrayIcon1: TTrayIcon;
     TrayIcon2: TTrayIcon;
-    thrdFMprocessor: TWCThread;
     twcThreadFMProcess: TWCThread;
     WCThread1: TWCThread;
     XMLConfig1: TXMLConfig;
@@ -458,6 +469,9 @@ type
     procedure btnStartStopClick(Sender: TObject);
     procedure btnBBquickPickClick(Sender: TObject);
     procedure btnBBwhatsBBClick(Sender: TObject);
+    procedure ColorBox1Change(Sender: TObject);
+    procedure ColorBox1MouseWheelDown(Sender: TObject; Shift: TShiftState;
+      MousePos: TPoint; var Handled: Boolean);
 
     procedure edtListFloaterExit(Sender: TObject);
     procedure edtListFloaterMouseMove(Sender: TObject; Shift: TShiftState;
@@ -497,19 +511,41 @@ type
     procedure edtDbgHintLength(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure imgPoweredByLazClick(Sender: TObject);
+    procedure lstActivityLogDblClick(Sender: TObject);
+    procedure lstActivityLogMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure lstActivityLogMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure lstActivityLogSelectionChange(Sender: TObject; User: boolean);
     procedure lstBoxLottoTicketsMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: integer);
+    procedure lstBroomBallWinsDblClick(Sender: TObject);
+    procedure lstBroomBallWinsMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure lstBroomBallWinsMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure lstBroomBallWinsSelectionChange(Sender: TObject; User: boolean);
+    procedure lstCollisionsDblClick(Sender: TObject);
+    procedure lstCollisionsMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure lstCollisionsMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure lstCollisionsSelectionChange(Sender: TObject; User: boolean);
     procedure lstRegExpsDblClick(Sender: TObject);
     procedure lstDRAWwithHTML(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
+    procedure lstVanMatchesDblClick(Sender: TObject);
+    procedure lstVanMatchesMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure lstVanMatchesMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure lstVanMatchesSelectionChange(Sender: TObject; User: boolean);
     procedure MenuItem11Click(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure mnuClearBroomBallClick(Sender: TObject);
     procedure mnuResetActvityLog1Click(Sender: TObject);
+    procedure mnuResetVanityLogClick(Sender: TObject);
+    procedure mnuResetCollisionLogClick(Sender: TObject);
     procedure mnuTrayExitClick(Sender: TObject);
 
 
@@ -518,6 +554,8 @@ type
     procedure memCollisionsChange(Sender: TObject);
     procedure memmnuResetActvityLogClick(Sender: TObject);
     procedure mnuTPoverRideClick(Sender: TObject);
+    procedure mnuVanityRemoveSelectionClick(Sender: TObject);
+    procedure mnuVanRemoveSelectionClick(Sender: TObject);
     procedure sedtThreadsKeyPress(Sender: TObject; var Key: char);
     procedure spnedtDirtyBroomWeightChange(Sender: TObject);
     procedure StringGridFMButtonClick(Sender: TObject; aCol, aRow: integer);
@@ -580,12 +618,15 @@ type
     procedure CreateStartThreadSearcher;
     function FMdelimToValid(const UserDelim: string): string;
     function FMdelimToValidChar(const UserDelim: string): char;
+    procedure LoadAllLogs;
     procedure LogBroomBallWin(var w1: string);
     procedure FMStartThread();
     procedure LogShowEdit(lstCntrl: TListBox; edtCntrl: TEdit);
     procedure LogPosEdit(lstCntrl: TListBox; edtCntrl: TEdit);
+    procedure lstFloatedtHideNow;
     procedure procHiderMakeBtns;
     procedure SafeExit;
+    procedure SaveAllLogs;
     procedure StopFreeThreadSearcher;
     procedure VanityItems2Search;
     function getSingleProgress(Pos64, Max64: int64): integer;
@@ -1128,6 +1169,25 @@ begin
   Result := ValidDelim;
 end;
 
+procedure TfrmMain.LoadAllLogs;
+begin
+  if FileExistsUTF8(fnCNSTcollision) then
+    lstCollisions.Items.LoadFromFile(fnCNSTcollision);
+  if FileExistsUTF8(fnCNSTbroomBall) then
+    lstBroomBallWins.Items.LoadFromFile(fnCNSTbroomBall);
+
+
+   if FileExists(fnCNSTactivity) then
+  begin
+    lstActivityLog.items.LoadFromFile(fnCNSTactivity);
+  end;
+
+  if FileExists(fnCNSTvanity) then
+  begin
+    lstVanMatches.Items.LoadFromFile(fnCNSTvanity);
+  end;
+end;
+
 procedure TfrmMain.LogBroomBallWin(var w1: string);
 var
   Cost: int64;
@@ -1153,7 +1213,7 @@ begin
       FormatCurr('$,0', Cost) + '</b>');
     items.Add('');
     ItemIndex := items.Count - 1;
-    items.SaveToFile('abbdBBdat');
+    items.SaveToFile(fnCNSTbroomBall);
   end;
   pgControlOutput.ActivePageIndex := 3;
 end;
@@ -1707,11 +1767,23 @@ begin
     end;
   end;
 
-  StringGridFM.SaveToCSVFile('abbdFMsgdat', '|', False, False);
+  StringGridFM.SaveToCSVFile(fnCNSTfmSG, '|', False, False);
   XMLConfig1.SetValue('starthidden', chkHideOnStart.Checked);
   XMLConfig1.SetValue('alltime', IntToStr(iAllTime));
   LogActivity('BitBroom session ended by user');
+
+  SaveAllLogs;
+
   Application.Terminate;
+end;
+
+procedure TfrmMain.SaveAllLogs;
+begin
+  lstVanMatches.Items.SaveToFile(fnCNSTvanity);
+  lstCollisions.Items.SaveToFile(fnCNSTcollision);
+  lstVanMatches.Items.SaveToFile(fnCNSTvanity);
+  lstBroomBallWins.Items.SaveToFile(fnCNSTbroomBall);
+
 end;
 
 procedure TfrmMain.StopFreeThreadSearcher;
@@ -1858,6 +1930,17 @@ begin
     'will trigger a BroomBall drawing.  If your ticket numbers match the drawing ' +
     'a BroomBall Jackpot message will apear in the activity log with the number ' +
     'of searches it took to get a match.');
+end;
+
+procedure TfrmMain.ColorBox1Change(Sender: TObject);
+begin
+
+end;
+
+procedure TfrmMain.ColorBox1MouseWheelDown(Sender: TObject; Shift: TShiftState;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+
 end;
 
 procedure TfrmMain.tmrHiderTimer(Sender: TObject);
@@ -2227,7 +2310,7 @@ var
 begin
   Randomize;
   //reinitialize randomize every so often so the BroomBall tickets have no predictability
-  nxtRandomInt := random(2000) + 500;
+  nxtRandomInt := random(20000) + 500;
   if nxtRandomInt < 100 then
     nxtRandomInt := 600;
   tmrReRandom.Interval := nxtRandomInt;
@@ -2308,6 +2391,7 @@ end;
 
 
 
+
 procedure TfrmMain.lstRegExpsDblClick(Sender: TObject);
 begin
   lstRegExps.Items.Delete(lstRegExps.ItemIndex);
@@ -2343,11 +2427,32 @@ begin
   lstBroomBallWins.items.Clear;
 end;
 
+procedure TfrmMain.mnuResetVanityLogClick(Sender: TObject);
+begin
+  lstVanMatches.Items.Clear;
+end;
+
+procedure TfrmMain.mnuVanityRemoveSelectionClick(Sender: TObject);
+begin
+  if lstVanMatches.ItemIndex = -1 then exit;
+  lstVanMatches.Items.Delete(lstVanMatches.ItemIndex);
+end;
+
+procedure TfrmMain.mnuResetCollisionLogClick(Sender: TObject);
+begin
+  lstCollisions.Items.Clear;
+end;
+
 procedure TfrmMain.mnuTrayExitClick(Sender: TObject);
 begin
   SafeExit;
 end;
 
+procedure TfrmMain.mnuVanRemoveSelectionClick(Sender: TObject);
+begin
+  if lstCollisions.ItemIndex = -1 then exit;
+  lstCollisions.Items.Delete(lstCollisions.ItemIndex);
+end;
 
 
 
@@ -2389,6 +2494,10 @@ begin
     sedtThreads.Value := sedtThreads.MaxValue div 2;
   end;
 end;
+
+
+
+
 
 
 
@@ -2724,7 +2833,7 @@ begin
     lstCollisions.items.Add(FormatDateTime('[mm-dd-yyyy hh:mm:ssAM/PM] ', now) +
       ' A match was found in ' + formatfloat(',# Tries!', iCmpltd));
     lstCollisions.items.add(w1 + sLineBreak + sLineBreak);
-    lstCollisions.items.SaveToFile('abbdCLdat');
+    lstCollisions.items.SaveToFile(fnCNSTcollision);
     pgControlOutput.ActivePageIndex := 1;
     LogActivity('A <font size="11" color="#33ccff"><b>COLLISION</b></font> was found in '
       + formatfloat(',# Tries!', iCmpltd));
@@ -2735,7 +2844,7 @@ begin
     lstVanMatches.items.Add(w1);
 
     VanityAlertScroll;
-    lstVanMatches.items.SaveToFile('abbdVdat');
+    lstVanMatches.items.SaveToFile(fnCNSTvanity);
     LogActivity('A <font color="#33cc00"><b>VANITY</font></b> was found in ' +
       formatfloat(',# Tries!', iCmpltd));
   end;
@@ -2755,7 +2864,7 @@ begin
 
   lstActivityLog.items.Add('<i><font color="#993399">' +
     FormatDateTime('[mm-dd-yyyy hh:mm:ssAM/PM] ', now) + '</font></i>' + AcMessage);
-  lstActivityLog.items.SaveToFile('abbdALdat');
+  lstActivityLog.items.SaveToFile(fnCNSTactivity);
 
   if not tmrLstEdtTimeOut.Enabled then
     lstActivityLog.ItemIndex := lstActivityLog.Items.Count - 1;
@@ -2818,57 +2927,132 @@ begin
 end;
 
 
-procedure TfrmMain.lstBroomBallWinsSelectionChange(Sender: TObject; User: boolean);
-var
-  itemRect: TRect;
+
+procedure TfrmMain.lstBroomBallWinsDblClick(Sender: TObject);
 begin
-  if User then
-  begin
-    tmrLstEdtTimeOut.Interval := 10000;
-    tmrLstEdtTimeOut.Enabled := True;
-    edtListFloater.Visible := False;
-    LogShowEdit(lstBroomBallWins, edtListFloater);
+  tmrLstEdtTimeOut.Interval := 6000;
+  tmrLstEdtTimeOut.Enabled := True;
+  edtListFloater.Visible := False;
+  LogShowEdit(lstBroomBallWins, edtListFloater);
+end;
+
+procedure TfrmMain.lstBroomBallWinsMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  if (lstBroomBallWins.GetIndexAtY(Y) < 0) then exit;
+
+  if Button = mbRight then
+  lstBroomBallWins.Selected[lstBroomBallWins.GetIndexAtY(Y)];
+end;
+
+procedure TfrmMain.lstBroomBallWinsMouseUp(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  if Button = mbRight then begin
+    //pumMemBroomBallWins.;
+  pumMemBroomBallWins.PopUp(Mouse.CursorPos.X+10,mouse.CursorPos.Y+10);
+  end;
+end;
+
+
+procedure TfrmMain.lstBroomBallWinsSelectionChange(Sender: TObject;
+  User: boolean);
+begin
+  lstFloatedtHideNow;
+end;
+
+
+procedure TfrmMain.lstVanMatchesDblClick(Sender: TObject);
+begin
+  tmrLstEdtTimeOut.Interval := 6000;
+  tmrLstEdtTimeOut.Enabled := True;
+  edtListFloater.Visible := False;
+  LogShowEdit(lstVanMatches, edtListFloater);
+end;
+
+procedure TfrmMain.lstVanMatchesMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  if (lstVanMatches.GetIndexAtY(Y) < 0) then exit;
+  if Button = mbRight then
+  lstVanMatches.Selected[lstVanMatches.GetIndexAtY(Y)];
+end;
+
+procedure TfrmMain.lstVanMatchesMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+    if Button = mbRight then begin
+  pumVanityLog.PopUp(Mouse.CursorPos.X+10,mouse.CursorPos.Y+10);
   end;
 end;
 
 procedure TfrmMain.lstVanMatchesSelectionChange(Sender: TObject; User: boolean);
-var
-  itemRect: TRect;
 begin
-  if User then
-  begin
-    tmrLstEdtTimeOut.Interval := 10000;
-    tmrLstEdtTimeOut.Enabled := True;
-    edtListFloater.Visible := False;
-    LogShowEdit(lstVanMatches, edtListFloater);
-  end;
+
+  lstFloatedtHideNow;
+
 end;
 
+procedure TfrmMain.lstActivityLogDblClick(Sender: TObject);
+begin
+  tmrLstEdtTimeOut.Interval := 6000;
+  tmrLstEdtTimeOut.Enabled := True;
+  edtListFloater.Visible := False;
+  LogShowEdit(lstActivityLog, edtListFloater);
+end;
+
+
+procedure TfrmMain.lstActivityLogMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+    if (lstActivityLog.GetIndexAtY(Y) < 0) then exit;
+if Button = mbRight then
+  lstActivityLog.Selected[lstActivityLog.GetIndexAtY(Y)];
+end;
+
+procedure TfrmMain.lstActivityLogMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+ if Button = mbRight then begin
+  pumActivityLog.PopUp(Mouse.CursorPos.X+10,mouse.CursorPos.Y+10);
+ end;
+end;
+
+procedure TfrmMain.lstActivityLogSelectionChange(Sender: TObject; User: boolean
+  );
+begin
+  lstFloatedtHideNow;
+end;
+
+procedure TfrmMain.lstCollisionsDblClick(Sender: TObject);
+begin
+  tmrLstEdtTimeOut.Interval := 6000;
+  tmrLstEdtTimeOut.Enabled := True;
+  edtListFloater.Visible := False;
+  LogShowEdit(lstCollisions, edtListFloater);
+end;
+
+procedure TfrmMain.lstCollisionsMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+ if (lstCollisions.GetIndexAtY(Y) < 0) then exit;
+ if Button = mbRight then
+  lstCollisions.Selected[lstCollisions.GetIndexAtY(Y)];
+end;
+
+procedure TfrmMain.lstCollisionsMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+    if Button = mbRight then begin
+  pumCollisionLog.PopUp(Mouse.CursorPos.X+10,mouse.CursorPos.Y+10);
+  end;
+end;
 
 procedure TfrmMain.lstCollisionsSelectionChange(Sender: TObject; User: boolean);
-var
-  itemRect: TRect;
 begin
-  if User then
-  begin
-    tmrLstEdtTimeOut.Interval := 10000;
-    tmrLstEdtTimeOut.Enabled := True;
-    edtListFloater.Visible := False;
-    LogShowEdit(lstCollisions, edtListFloater);
-  end;
+  lstFloatedtHideNow;
 end;
 
-
-procedure TfrmMain.lstActivityLogSelectionChange(Sender: TObject; User: boolean);
-begin
-  if User then
-  begin
-    tmrLstEdtTimeOut.Interval := 10000;
-    tmrLstEdtTimeOut.Enabled := True;
-    edtListFloater.Visible := False;
-    LogShowEdit(lstActivityLog, edtListFloater);
-  end;
-end;
 
 procedure TfrmMain.LogShowEdit(lstCntrl: TListBox; edtCntrl: TEdit);
 var
@@ -2911,12 +3095,21 @@ begin
   edtCntrl.Height := itemRect.Height + 2;
   edtCntrl.Width := itemRect.Width + 2;
 
+
+end;
+
+
+
+procedure TfrmMain.lstFloatedtHideNow;
+begin
+  tmrLstEdtTimeOut.Enabled := False;
+  edtListFloater.Visible := False;
 end;
 
 procedure TfrmMain.edtListFloaterExit(Sender: TObject);
 begin
-  tmrLstEdtTimeOut.Enabled := False;
-  edtListFloater.Visible := False;
+  lstFloatedtHideNow;
+
 end;
 
 procedure TfrmMain.tmrLstEdtTimeOutTimer(Sender: TObject);
@@ -2957,22 +3150,23 @@ begin
 
 end;
 
+
+
+
 procedure TfrmMain.FormOnCreate(Sender: TObject);
 begin
 
   FMreloadSG; // reload File Manager StringGridFM with some
-  if FileExistsUTF8('abbdCLdat') then
-    lstCollisions.Items.LoadFromFile('abbdCLdat');
-  if FileExistsUTF8('abbdBBdat') then
-    lstBroomBallWins.Items.LoadFromFile('abbdBBdat');
+  LoadAllLogs;
+
+
+
   Application.ShowHint := True;
   sedtThreads.MaxValue := TWCThread.ProcessorCount;
   sedtThreads.Hint := IntToStr(sedtThreads.MaxValue) + ' Processors Reported ' +
     sLineBreak + 'Optimum performance seems to be one thread per core' +
     sLineBreak + 'Right click to overide';
 
-
-  Randomize;
 
   forcedCancel := True;
   iAllTime := StrToInt64(XMLConfig1.GetValue('alltime', '0'));
@@ -2982,15 +3176,9 @@ begin
   chkBTCAdrChange(self);
   chkBTCAdrCompChange(self);
 
-  if FileExists('abbdALdat') then
-  begin
-    lstActivityLog.items.LoadFromFile('abbdALdat');
-  end;
 
-  if FileExists('abbdVdat') then
-  begin
-    lstVanMatches.Items.LoadFromFile('abbdVdat');
-  end;
+
+
 
   LogActivity('<i>BitBroom</i> Session Has <b><i><font color="#33cc00">Started</font></i></b>');
   if FileExists(dlgCLDRload.FileName) then

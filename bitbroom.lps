@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectSession>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <BuildModes Count="2" Active="Release">
       <Item1 Name="Debug">
         <CompilerOptions>
@@ -40,9 +40,6 @@
               </Win32>
             </Options>
           </Linking>
-          <Other>
-            <CustomOptions Value="-gv"/>
-          </Other>
         </CompilerOptions>
       </Item1>
       <Item2 Name="Release">
@@ -77,11 +74,11 @@
         </CompilerOptions>
       </Item2>
     </BuildModes>
-    <Units Count="19">
+    <Units Count="29">
       <Unit0>
         <Filename Value="bitbroom.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="14"/>
         <TopLine Value="7"/>
         <CursorPos Y="38"/>
         <UsageCount Value="238"/>
@@ -94,9 +91,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmMainunit"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="2393"/>
-        <CursorPos X="209" Y="2718"/>
+        <TopLine Value="872"/>
+        <CursorPos Y="881"/>
+        <ComponentState Value="1"/>
         <UsageCount Value="238"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -104,18 +101,20 @@
       <Unit2>
         <Filename Value="btckeyfunctions.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="303"/>
-        <CursorPos X="3" Y="329"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="249"/>
+        <CursorPos Y="261"/>
         <UsageCount Value="238"/>
+        <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="UBitcoinKey.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="208"/>
-        <CursorPos X="28" Y="231"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="229"/>
+        <CursorPos Y="254"/>
         <UsageCount Value="238"/>
+        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="UECKey.pas"/>
@@ -147,148 +146,304 @@
         <UsageCount Value="238"/>
       </Unit7>
       <Unit8>
-        <Filename Value="../../../fpclazinstalls/config_lazarus/onlinepackagemanager/packages/lazbarcodes/src/ubarcodes.pas"/>
+        <Filename Value="lib/wthread-master/threading.lpk"/>
+        <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="7"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="267"/>
+        <DefaultSyntaxHighlighter Value="XML"/>
       </Unit8>
       <Unit9>
-        <Filename Value="../BITBROOM2/lib/CryptoLib4Pascal-master/CryptoLib/src/Security/ClpDigestUtilities.pas"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="7"/>
-      </Unit9>
-      <Unit10>
-        <Filename Value="../../../fpclazinstalls/fpcsrc/packages/opencl/src/cl.pp"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="7"/>
-      </Unit10>
-      <Unit11>
-        <Filename Value="../BITBROOM2/lib/CryptoLib4Pascal-master/CryptoLib/src/Utils/Encoders/ClpEncoders.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="20"/>
-        <CursorPos X="3" Y="35"/>
-        <UsageCount Value="7"/>
-      </Unit11>
-      <Unit12>
         <Filename Value="../../fpclazinstalls/config_lazarus/onlinepackagemanager/packages/lazbarcodes/packages/lazbarcodes_runtimeonly.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="3" Y="11"/>
-        <UsageCount Value="54"/>
-      </Unit12>
-      <Unit13>
+        <UsageCount Value="1"/>
+      </Unit9>
+      <Unit10>
         <Filename Value="../../fpclazinstalls/config_lazarus/onlinepackagemanager/packages/lazbarcodes/packages/lazbarcodes.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="8" Y="12"/>
-        <UsageCount Value="54"/>
-      </Unit13>
-      <Unit14>
-        <Filename Value="../../fpclazinstalls/lazarus/lcl/checklst.pas"/>
-        <UnitName Value="CheckLst"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="181"/>
-        <CursorPos X="3" Y="84"/>
-        <UsageCount Value="9"/>
-      </Unit14>
-      <Unit15>
+        <UsageCount Value="1"/>
+      </Unit10>
+      <Unit11>
         <Filename Value="../../fpclazinstalls/lazarus/lcl/comboex.pas"/>
         <UnitName Value="ComboEx"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="301"/>
-        <CursorPos X="3" Y="332"/>
-        <UsageCount Value="16"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="141"/>
+        <CursorPos X="22" Y="156"/>
+        <UsageCount Value="69"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="../../fpclazinstalls/fpcsrc/rtl/unix/sysunixh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="36"/>
+        <CursorPos X="3" Y="56"/>
+        <UsageCount Value="43"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="../../fpclazinstalls/lazarus/lcl/controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="181"/>
+        <CursorPos X="3" Y="187"/>
+        <UsageCount Value="4"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="../../fpclazinstalls/lazarus/lcl/include/customlistbox.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="189"/>
+        <CursorPos Y="203"/>
+        <UsageCount Value="3"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="../../fpclazinstalls/lazarus/lcl/colorbox.pas"/>
+        <UnitName Value="ColorBox"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1037"/>
+        <CursorPos X="27" Y="1063"/>
+        <UsageCount Value="2"/>
       </Unit15>
       <Unit16>
-        <Filename Value="../../fpclazinstalls/lazarus/lcl/stdctrls.pp"/>
-        <UnitName Value="StdCtrls"/>
+        <Filename Value="../../fpclazinstalls/fpcsrc/rtl/objpas/classes/classes.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1684"/>
-        <CursorPos X="12" Y="1692"/>
-        <UsageCount Value="9"/>
+        <TopLine Value="1061"/>
+        <CursorPos X="43" Y="1061"/>
+        <UsageCount Value="2"/>
       </Unit16>
       <Unit17>
-        <Filename Value="../../fpclazinstalls/lazarus/lcl/include/customcombobox.inc"/>
+        <Filename Value="../../fpclazinstalls/lazarus/lcl/include/comboex.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1094"/>
-        <UsageCount Value="9"/>
+        <TopLine Value="359"/>
+        <CursorPos X="8" Y="359"/>
+        <UsageCount Value="2"/>
       </Unit17>
       <Unit18>
-        <Filename Value="../../fpclazinstalls/fpcsrc/rtl/unix/sysunixh.inc"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="28"/>
-        <CursorPos X="3" Y="56"/>
-        <UsageCount Value="16"/>
+        <Filename Value="../CryptoLib4Pascal/CryptoLib/src/Interfaces/ClpIX9ECParameters.pas"/>
+        <EditorIndex Value="13"/>
+        <CursorPos X="14" Y="39"/>
+        <UsageCount Value="11"/>
         <Loaded Value="True"/>
       </Unit18>
+      <Unit19>
+        <Filename Value="../CryptoLib4Pascal/CryptoLib/src/Interfaces/ClpIRandom.pas"/>
+        <EditorIndex Value="12"/>
+        <TopLine Value="14"/>
+        <CursorPos X="15" Y="32"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="../CryptoLib4Pascal/CryptoLib/src/Interfaces/ClpIECC.pas"/>
+        <EditorIndex Value="11"/>
+        <TopLine Value="500"/>
+        <CursorPos X="14" Y="260"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="../CryptoLib4Pascal/CryptoLib/src/Security/ClpSecureRandom.pas"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="204"/>
+        <CursorPos Y="222"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="../CryptoLib4Pascal/CryptoLib/src/Crypto/Prng/ClpDigestRandomGenerator.pas"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="150"/>
+        <CursorPos Y="175"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="../CryptoLib4Pascal/CryptoLib/src/Crypto/Digests/ClpDigest.pas"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="139"/>
+        <CursorPos Y="158"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Base/HlpHash.pas"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="40"/>
+        <CursorPos Y="55"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Base/HlpHashCryptoNotBuildIn.pas"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="56"/>
+        <CursorPos Y="81"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Base/HlpHashBuffer.pas"/>
+        <EditorIndex Value="10"/>
+        <TopLine Value="123"/>
+        <CursorPos Y="147"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="483"/>
+        <CursorPos Y="507"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Utils/HlpConverters.pas"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="144"/>
+        <CursorPos Y="158"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit28>
     </Units>
-    <JumpHistory Count="16" HistoryIndex="14">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="1357" Column="43" TopLine="1333"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="489" TopLine="465"/>
       </Position1>
       <Position2>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="579" Column="32" TopLine="565"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="488" TopLine="465"/>
       </Position2>
       <Position3>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="1350" Column="9" TopLine="1350"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="489" TopLine="465"/>
       </Position3>
       <Position4>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="14" Column="3"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="490" TopLine="466"/>
       </Position4>
       <Position5>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="563" Column="33" TopLine="547"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="491" TopLine="467"/>
       </Position5>
       <Position6>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2627" Column="21" TopLine="2602"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="492" TopLine="468"/>
       </Position6>
       <Position7>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2563" Column="21" TopLine="2552"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="493" TopLine="469"/>
       </Position7>
       <Position8>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="532" Column="15" TopLine="517"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="492" TopLine="469"/>
       </Position8>
       <Position9>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2123" Column="36" TopLine="2107"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="493" TopLine="469"/>
       </Position9>
       <Position10>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2133" Column="3" TopLine="2117"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="494" TopLine="470"/>
       </Position10>
       <Position11>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="643" Column="32" TopLine="632"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="495" TopLine="471"/>
       </Position11>
       <Position12>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2409" Column="8" TopLine="2390"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="496" TopLine="472"/>
       </Position12>
       <Position13>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2410" Column="26" TopLine="2392"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="495" TopLine="472"/>
       </Position13>
       <Position14>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2411" Column="3" TopLine="2391"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="496" TopLine="472"/>
       </Position14>
       <Position15>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2415" Column="35" TopLine="2390"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="497" TopLine="473"/>
       </Position15>
       <Position16>
-        <Filename Value="frmmainunit.pas"/>
-        <Caret Line="3015" Column="16" TopLine="2995"/>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="498" TopLine="474"/>
       </Position16>
+      <Position17>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="499" TopLine="475"/>
+      </Position17>
+      <Position18>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="500" TopLine="476"/>
+      </Position18>
+      <Position19>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="499" TopLine="476"/>
+      </Position19>
+      <Position20>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="500" TopLine="476"/>
+      </Position20>
+      <Position21>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="501" TopLine="477"/>
+      </Position21>
+      <Position22>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="502" TopLine="478"/>
+      </Position22>
+      <Position23>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="503" TopLine="479"/>
+      </Position23>
+      <Position24>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="502" TopLine="479"/>
+      </Position24>
+      <Position25>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="503" TopLine="479"/>
+      </Position25>
+      <Position26>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="504" TopLine="480"/>
+      </Position26>
+      <Position27>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="505" TopLine="481"/>
+      </Position27>
+      <Position28>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="506" TopLine="482"/>
+      </Position28>
+      <Position29>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="507" TopLine="483"/>
+      </Position29>
+      <Position30>
+        <Filename Value="../HashLib4Pascal/HashLib/src/Crypto/HlpSHA2_256Base.pas"/>
+        <Caret Line="506" TopLine="483"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
-      <Modes Count="0" ActiveMode=""/>
+      <Modes ActiveMode=""/>
     </RunParams>
   </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="frmmainunit.pas"/>
+        <Line Value="881"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
 </CONFIG>

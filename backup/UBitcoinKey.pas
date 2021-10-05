@@ -195,7 +195,7 @@ end;
 
 
 
-function ByteArrayToHexString(input: TBytes): string;
+function TBitcoinKey.ByteArrayToHexString(input: TBytes): string;
 var
   index: Int32;
 begin
@@ -227,7 +227,7 @@ begin
   WithVersionByte := TArrayUtils.Concatenate(THex.Decode(VersionByte), Hash);
   Hash := DoubleSHA256Hash(WithVersionByte);
   Checksum := System.Copy(Hash, 0, 4);
-  //byteto ?
+
   Result := TBase58.Encode(TArrayUtils.Concatenate(WithVersionByte, Checksum));
 end;
 

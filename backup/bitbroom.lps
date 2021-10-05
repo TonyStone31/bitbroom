@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectSession>
-    <Version Value="11"/>
-    <BuildModes Count="2" Active="Release">
+    <Version Value="12"/>
+    <BuildModes Count="2" Active="Debug">
       <Item1 Name="Debug">
         <CompilerOptions>
           <Version Value="11"/>
@@ -40,9 +40,6 @@
               </Win32>
             </Options>
           </Linking>
-          <Other>
-            <CustomOptions Value="-gv"/>
-          </Other>
         </CompilerOptions>
       </Item1>
       <Item2 Name="Release">
@@ -77,11 +74,11 @@
         </CompilerOptions>
       </Item2>
     </BuildModes>
-    <Units Count="19">
+    <Units Count="18">
       <Unit0>
         <Filename Value="bitbroom.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="1"/>
         <TopLine Value="7"/>
         <CursorPos Y="38"/>
         <UsageCount Value="238"/>
@@ -95,8 +92,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmMainunit"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="2389"/>
-        <CursorPos X="95" Y="2409"/>
+        <TopLine Value="2643"/>
+        <CursorPos Y="2652"/>
+        <ComponentState Value="2"/>
         <UsageCount Value="238"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -147,147 +145,205 @@
         <UsageCount Value="238"/>
       </Unit7>
       <Unit8>
-        <Filename Value="../../../fpclazinstalls/config_lazarus/onlinepackagemanager/packages/lazbarcodes/src/ubarcodes.pas"/>
+        <Filename Value="lib/wthread-master/threading.lpk"/>
+        <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="8"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="267"/>
+        <DefaultSyntaxHighlighter Value="XML"/>
       </Unit8>
       <Unit9>
-        <Filename Value="../BITBROOM2/lib/CryptoLib4Pascal-master/CryptoLib/src/Security/ClpDigestUtilities.pas"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="8"/>
-      </Unit9>
-      <Unit10>
-        <Filename Value="../../../fpclazinstalls/fpcsrc/packages/opencl/src/cl.pp"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="8"/>
-      </Unit10>
-      <Unit11>
-        <Filename Value="../BITBROOM2/lib/CryptoLib4Pascal-master/CryptoLib/src/Utils/Encoders/ClpEncoders.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="20"/>
-        <CursorPos X="3" Y="35"/>
-        <UsageCount Value="8"/>
-      </Unit11>
-      <Unit12>
         <Filename Value="../../fpclazinstalls/config_lazarus/onlinepackagemanager/packages/lazbarcodes/packages/lazbarcodes_runtimeonly.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="3" Y="11"/>
-        <UsageCount Value="55"/>
-      </Unit12>
-      <Unit13>
+        <UsageCount Value="2"/>
+      </Unit9>
+      <Unit10>
         <Filename Value="../../fpclazinstalls/config_lazarus/onlinepackagemanager/packages/lazbarcodes/packages/lazbarcodes.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="8" Y="12"/>
-        <UsageCount Value="55"/>
-      </Unit13>
-      <Unit14>
-        <Filename Value="../../fpclazinstalls/lazarus/lcl/checklst.pas"/>
-        <UnitName Value="CheckLst"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="181"/>
-        <CursorPos X="3" Y="84"/>
-        <UsageCount Value="10"/>
-      </Unit14>
-      <Unit15>
+        <UsageCount Value="2"/>
+      </Unit10>
+      <Unit11>
         <Filename Value="../../fpclazinstalls/lazarus/lcl/comboex.pas"/>
         <UnitName Value="ComboEx"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="301"/>
-        <CursorPos X="3" Y="332"/>
-        <UsageCount Value="13"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="141"/>
+        <CursorPos X="22" Y="156"/>
+        <UsageCount Value="70"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="../../fpclazinstalls/fpcsrc/rtl/unix/sysunixh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="36"/>
+        <CursorPos X="3" Y="56"/>
+        <UsageCount Value="44"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="../../fpclazinstalls/lazarus/lcl/controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="181"/>
+        <CursorPos X="3" Y="187"/>
+        <UsageCount Value="5"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="../../fpclazinstalls/lazarus/lcl/include/customlistbox.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="189"/>
+        <CursorPos Y="203"/>
+        <UsageCount Value="4"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="../../fpclazinstalls/lazarus/lcl/colorbox.pas"/>
+        <UnitName Value="ColorBox"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1037"/>
+        <CursorPos X="27" Y="1063"/>
+        <UsageCount Value="3"/>
       </Unit15>
       <Unit16>
-        <Filename Value="../../fpclazinstalls/lazarus/lcl/stdctrls.pp"/>
-        <UnitName Value="StdCtrls"/>
+        <Filename Value="../../fpclazinstalls/fpcsrc/rtl/objpas/classes/classes.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1684"/>
-        <CursorPos X="12" Y="1692"/>
-        <UsageCount Value="10"/>
+        <TopLine Value="1061"/>
+        <CursorPos X="43" Y="1061"/>
+        <UsageCount Value="3"/>
       </Unit16>
       <Unit17>
-        <Filename Value="../../fpclazinstalls/lazarus/lcl/include/customcombobox.inc"/>
+        <Filename Value="../../fpclazinstalls/lazarus/lcl/include/comboex.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1094"/>
-        <UsageCount Value="10"/>
+        <TopLine Value="359"/>
+        <CursorPos X="8" Y="359"/>
+        <UsageCount Value="3"/>
       </Unit17>
-      <Unit18>
-        <Filename Value="../../fpclazinstalls/fpcsrc/rtl/unix/sysunixh.inc"/>
-        <EditorIndex Value="1"/>
-        <CursorPos X="3" Y="56"/>
-        <UsageCount Value="13"/>
-        <Loaded Value="True"/>
-      </Unit18>
     </Units>
-    <JumpHistory Count="16" HistoryIndex="14">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="1357" Column="43" TopLine="1333"/>
+        <Caret Line="3115" Column="3" TopLine="3085"/>
       </Position1>
       <Position2>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="579" Column="32" TopLine="565"/>
+        <Caret Line="3114" Column="3" TopLine="3084"/>
       </Position2>
       <Position3>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="1350" Column="9" TopLine="1350"/>
+        <Caret Line="3113" Column="3" TopLine="3083"/>
       </Position3>
       <Position4>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="14" Column="3"/>
+        <Caret Line="3112" Column="3" TopLine="3082"/>
       </Position4>
       <Position5>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="563" Column="33" TopLine="547"/>
+        <Caret Line="3111" Column="3" TopLine="3081"/>
       </Position5>
       <Position6>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2627" Column="21" TopLine="2602"/>
+        <Caret Line="3110" Column="3" TopLine="3080"/>
       </Position6>
       <Position7>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2563" Column="21" TopLine="2552"/>
+        <Caret Line="3109" Column="3" TopLine="3079"/>
       </Position7>
       <Position8>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="532" Column="15" TopLine="517"/>
+        <Caret Line="3108" Column="3" TopLine="3078"/>
       </Position8>
       <Position9>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2123" Column="36" TopLine="2107"/>
+        <Caret Line="3107" Column="3" TopLine="3077"/>
       </Position9>
       <Position10>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2133" Column="3" TopLine="2117"/>
+        <Caret Line="3106" Column="3" TopLine="3076"/>
       </Position10>
       <Position11>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="643" Column="32" TopLine="632"/>
+        <Caret Line="3105" Column="3" TopLine="3075"/>
       </Position11>
       <Position12>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2409" Column="8" TopLine="2390"/>
+        <Caret Line="3104" Column="3" TopLine="3074"/>
       </Position12>
       <Position13>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2410" Column="26" TopLine="2392"/>
+        <Caret Line="3103" Column="3" TopLine="3073"/>
       </Position13>
       <Position14>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2411" Column="3" TopLine="2391"/>
+        <Caret Line="3102" Column="3" TopLine="3072"/>
       </Position14>
       <Position15>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="2415" Column="35" TopLine="2390"/>
+        <Caret Line="3101" Column="3" TopLine="3071"/>
       </Position15>
       <Position16>
         <Filename Value="frmmainunit.pas"/>
-        <Caret Line="3015" Column="16" TopLine="2995"/>
+        <Caret Line="3100" Column="3" TopLine="3070"/>
       </Position16>
+      <Position17>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="3099" Column="3" TopLine="3069"/>
+      </Position17>
+      <Position18>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="3098" Column="3" TopLine="3068"/>
+      </Position18>
+      <Position19>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="3097" Column="3" TopLine="3067"/>
+      </Position19>
+      <Position20>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="3137" Column="3" TopLine="3107"/>
+      </Position20>
+      <Position21>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="3136" Column="3" TopLine="3106"/>
+      </Position21>
+      <Position22>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="3135" Column="3" TopLine="3105"/>
+      </Position22>
+      <Position23>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="3134" Column="3" TopLine="3104"/>
+      </Position23>
+      <Position24>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="3135" Column="3" TopLine="3105"/>
+      </Position24>
+      <Position25>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="3134" Column="3" TopLine="3104"/>
+      </Position25>
+      <Position26>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="3133" Column="3" TopLine="3103"/>
+      </Position26>
+      <Position27>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="3125" Column="66" TopLine="838"/>
+      </Position27>
+      <Position28>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="2773" Column="10" TopLine="2752"/>
+      </Position28>
+      <Position29>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="2584" Column="9" TopLine="2564"/>
+      </Position29>
+      <Position30>
+        <Filename Value="frmmainunit.pas"/>
+        <Caret Line="2594" TopLine="2570"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
-      <Modes Count="0" ActiveMode=""/>
+      <Modes ActiveMode=""/>
     </RunParams>
   </ProjectSession>
 </CONFIG>

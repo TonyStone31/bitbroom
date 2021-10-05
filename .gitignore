@@ -1,2 +1,8 @@
 abbd*dat
 bindbgbitbroom
+abbdALdat [conflicted]
+abbdALdat [conflicted]
+abbdCLdat [conflicted]
+*.compiled
+backup/bitbroom.lpi
+backup/bitbroom.lps
