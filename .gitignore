@@ -6,3 +6,5 @@ abbdCLdat [conflicted]
 *.compiled
 backup/bitbroom.lpi
 backup/bitbroom.lps
+backup/
+published/
