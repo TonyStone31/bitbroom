@@ -1,8 +1,0 @@
-object frmAbout: TfrmAbout
-  Left = 3610
-  Height = 240
-  Top = 1330
-  Width = 320
-  Caption = 'frmAbout'
-  LCLVersion = '2.0.12.0'
-end
