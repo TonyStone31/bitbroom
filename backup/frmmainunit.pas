@@ -7,10 +7,10 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ComCtrls, ExtCtrls,
   StdCtrls, btckeyfunctions, ClpEncoders, Clipbrd, XMLPropStorage, Menus,
-  Buttons, Grids, SpinEx, SynEdit,
-  WCThread, GifAnim, XMLConf, UBitcoinKey, ClpDigestUtilities, ClpArrayUtils,
-  USha256, StrUtils, Types, LazFileUtils, LazUtf8, FileUtil, LCLIntf,
-  csvreadwrite, bufstream, LMessages, ctypes, cl, jvclHTMLUtils,
+  Buttons, Grids, SpinEx, SynEdit, WCThread, GifAnim, cyColorGrid,
+  cyAdvGridPanel, cyColorMatrix, XMLConf, UBitcoinKey, ClpDigestUtilities,
+  ClpArrayUtils, USha256, StrUtils, Types, LazFileUtils, LazUtf8, FileUtil,
+  LCLIntf, csvreadwrite, bufstream, LMessages, ctypes, cl, jvclHTMLUtils,
   LCLType, Spin, ubarcodes, Math;
 
 const
@@ -91,12 +91,11 @@ type
     chkHideOnStart: TCheckBox;
     chkKeepAwake: TCheckBox;
     chkOnlySystemIdleRun: TCheckBox;
-    chkPublicKey: TCheckBox;
-    chkPublicKeyComp: TCheckBox;
     chkRegExp: TCheckBox;
     chkSystemStartLaunch: TCheckBox;
     ComboDevType: TComboBox;
     ComboPlatform: TComboBox;
+    dgKeySpace: TDrawGrid;
     dlgCLDRload: TOpenDialog;
     dlgFMLoadSource: TOpenDialog;
     dlgFMsaveTarget: TSaveDialog;
@@ -230,7 +229,6 @@ type
     memFMmsg: TMemo;
     lstBroomBallWins: TListBox;
     lstCollisions: TListBox;
-    memKPEstepBystep: TMemo;
     memVanMatches1: TListBox;
     MenuItem1: TMenuItem;
     MenuItem10: TMenuItem;
@@ -376,7 +374,6 @@ type
     tabKeyPair: TTabSheet;
     tabCollisions: TTabSheet;
     tabOpenCLide: TTabSheet;
-    TabSheet1: TTabSheet;
     tabKSPmap: TTabSheet;
     tabVanityMatches: TTabSheet;
     tabBBwins: TTabSheet;
@@ -469,13 +466,16 @@ type
     procedure btnStartStopClick(Sender: TObject);
     procedure btnBBquickPickClick(Sender: TObject);
     procedure btnBBwhatsBBClick(Sender: TObject);
-    procedure ColorBox1Change(Sender: TObject);
-    procedure ColorBox1MouseWheelDown(Sender: TObject; Shift: TShiftState;
-      MousePos: TPoint; var Handled: Boolean);
+
+    procedure dgKeySpaceDrawCell(Sender: TObject; aCol, aRow: Integer;
+      aRect: TRect; aState: TGridDrawState);
+    procedure dgKeySpaceMouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
 
     procedure edtListFloaterExit(Sender: TObject);
     procedure edtListFloaterMouseMove(Sender: TObject; Shift: TShiftState;
       X, Y: integer);
+    procedure FormResize(Sender: TObject);
 
 
 
@@ -492,8 +492,8 @@ type
 
 
     procedure chkKeepAwakeChange(Sender: TObject);
-    procedure chkPublicKeyCompChange(Sender: TObject);
-    procedure chkPublicKeyChange(Sender: TObject);
+
+
     procedure chkRegExpChange(Sender: TObject);
     procedure edtBBball1Change(Sender: TObject);
     procedure edtBBball1KeyPress(Sender: TObject; var Key: char);
@@ -598,6 +598,7 @@ type
     procedure AddFilesToList(FileName: string);
     procedure AddFilesToListExample(FilePathName: string);
     procedure procFMtogFRMinput(avail: boolean);
+    procedure KSMDrawMap;
 
     ///// OPENCL //////////////
     procedure OCLProbe(Sender: TObject);
@@ -618,6 +619,7 @@ type
     procedure CreateStartThreadSearcher;
     function FMdelimToValid(const UserDelim: string): string;
     function FMdelimToValidChar(const UserDelim: string): char;
+    procedure KSMPrepareMap;
     procedure LoadAllLogs;
     procedure LogBroomBallWin(var w1: string);
     procedure FMStartThread();
@@ -727,10 +729,15 @@ var
 
   regExSlst: array of string;
 
-  incRegExpSearch, incBTCAddress, incPubKey, incPubKeyComp, incBTCAddressC,
+  incRegExpSearch, incBTCAddress, incBTCAddressC,
   GetWorkSample: boolean;
 
 
+  KSMcolorarr: array [0..4] of TColor = (clWhite, clYellow, $008080FF, clAqua, clLime);
+  KSMmaparr: array of array of String;
+  KSMmapx: integer;
+  KSMblocksize: Integer;
+  KSMblockspace: Integer;
 
 
 implementation
@@ -793,8 +800,9 @@ begin
   TbtcKeyFunctions.GetPublicKeyDetailsKPE(edtPvtKeyBitCoin.Text,
     Address, PubKey, PubKeyCo, AddressCo, Hash160, Hash160Comp);
 
-  memKPEstepBystep.Lines.Add(Hash160Comp);
-  memKPEstepBystep.Lines.add(Hash160);
+  //these following 2 lines were to try and demonstrate the key as a string, step by step as it is converted to an address
+  //memKPEstepBystep.Lines.Add(Hash160Comp);
+  //memKPEstepBystep.Lines.add(Hash160);
   edtaddressBitCoin.Text := Address;
   qrCodeAddressBitCoin.Text := Address;
 
@@ -958,17 +966,9 @@ end;
 
 procedure TfrmMain.chkBTCAdrChange(Sender: TObject);
 begin
-  if chkBTCAdr.Checked then
-    chkPublicKey.Checked := True;
   incBTCAddress := chkBTCAdr.Checked;
 end;
 
-procedure TfrmMain.chkPublicKeyChange(Sender: TObject);
-begin
-  if not chkPublicKey.Checked then
-    chkBTCAdr.Checked := False;
-  incPubKey := chkPublicKey.Checked;
-end;
 
 procedure TfrmMain.chkRegExpChange(Sender: TObject);
 begin
@@ -977,17 +977,10 @@ end;
 
 
 
-procedure TfrmMain.chkPublicKeyCompChange(Sender: TObject);
-begin
-  if not chkPublicKeyComp.Checked then
-    chkBTCAdrComp.Checked := False;
-  incPubKeyComp := chkPublicKeyComp.Checked;
-end;
+
 
 procedure TfrmMain.chkBTCAdrCompChange(Sender: TObject);
 begin
-  if chkBTCAdrComp.Checked then
-    chkPublicKeyComp.Checked := True;
   incBTCAddressC := chkBTCAdrComp.Checked;
 end;
 
@@ -1168,6 +1161,8 @@ begin
     ValidDelim := #124;
   Result := ValidDelim;
 end;
+
+
 
 procedure TfrmMain.LoadAllLogs;
 begin
@@ -1932,15 +1927,88 @@ begin
     'of searches it took to get a match.');
 end;
 
-procedure TfrmMain.ColorBox1Change(Sender: TObject);
+procedure TfrmMain.KSMPrepareMap;
+var
+  r: Integer;
+  i: Integer;
 begin
+    SetLength(KSMmaparr, 100000, 2);
+  for i := Low(KSMmaparr) to High(KSMmaparr) do
+  begin
+    r := Random(Length(KSMcolorarr));
+    KSMmaparr[i, 0] := 'Hint for cell ' + formatfloat(',#', i) + '; Color: ' +
+      ColorToString(KSMcolorarr[r]);
+    KSMmaparr[i, 1] := IntToStr(r);
+  end;
 
+
+  KSMmapx := 0;
+  dgKeySpace.Clear;
+  dgKeySpace.FixedCols := 0;
+  dgKeySpace.FixedRows := 0;
+  dgKeySpace.Color := clWindow;
+  dgKeySpace.FocusRectVisible := False;
+  dgKeySpace.GridLineColor := dgKeySpace.Color;
+  dgKeySpace.ShowHint := True;
+  KSMblockspace := 0;
+  KSMblocksize := 12 + KSMblockspace;
+  Application.HintPause := 10;
+
+  KSMDrawMap;
 end;
 
-procedure TfrmMain.ColorBox1MouseWheelDown(Sender: TObject; Shift: TShiftState;
-  MousePos: TPoint; var Handled: Boolean);
+procedure TfrmMain.KSMDrawMap;
 begin
+  dgKeySpace.BeginUpdate;
+  dgKeySpace.Clear;
+  dgKeySpace.GridLineWidth := KSMblockspace;
+  dgKeySpace.DefaultColWidth := KSMblocksize;
+  dgKeySpace.DefaultRowHeight := KSMblocksize;
+  KSMmapx := dgKeySpace.ClientWidth div KSMblocksize;
+  dgKeySpace.ColCount := KSMmapx;
+  dgKeySpace.RowCount := Ceil(Length(KSMmaparr) / KSMmapx);
+  dgKeySpace.EndUpdate;
+  if (Ceil(Length(KSMmaparr) / KSMmapx) * KSMblocksize) > dgKeySpace.ClientHeight  - (KSMblocksize+KSMblockspace) then
+  begin
+    dgKeySpace.BeginUpdate;
+    KSMmapx := dgKeySpace.ClientWidth div KSMblocksize;
+    dgKeySpace.ColCount := KSMmapx;
+    dgKeySpace.RowCount := Ceil(Length(KSMmaparr) / KSMmapx);
+    dgKeySpace.EndUpdate;
+  end;
+end;
 
+
+procedure TfrmMain.dgKeySpaceDrawCell(Sender: TObject; aCol, aRow: Integer;
+  aRect: TRect; aState: TGridDrawState);
+begin
+    if (aRow * KSMmapx) + aCol < Length(KSMmaparr) then
+  begin
+
+    dgKeySpace.Canvas.Brush.Color := KSMcolorarr[StrToInt(KSMmaparr[(aRow * KSMmapx) + aCol, 1])];
+    //dgKeySpace.Canvas.Brush.Style := ;
+    //dgKeySpace.Canvas.Brush.Pattern := ;
+
+    dgKeySpace.Canvas.RoundRect(aRect,5,5);
+    //dgKeySpace.Canvas.FillRect(.).;
+    exit;
+  end;
+    dgKeySpace.DefaultDrawCell(aCol,aRow,aRect,aState);
+end;
+
+procedure TfrmMain.dgKeySpaceMouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+var
+  aCol, aRow: Integer;
+begin
+    if (dgKeySpace.ColCount > 0) and (dgKeySpace.RowCount > 0) then
+  begin
+    dgKeySpace.MouseToCell(X, Y, aCol, aRow);
+    if (aRow * KSMmapx) + aCol < Length(KSMmaparr) then
+      dgKeySpace.Hint := KSMmaparr[(aRow * KSMmapx) + aCol, 0]
+    else
+      dgKeySpace.Hint := '';
+  end;
 end;
 
 procedure TfrmMain.tmrHiderTimer(Sender: TObject);
@@ -2581,17 +2649,18 @@ begin
 
     randPrvKey1 := TbtcKeyFunctions.ABGenerateValidRandomBytesForPrivateKey();
 
-    //KeyInThread := TBitcoinKey.Create(randPrvKey1, -1, False);
+    KeyInThread := TBitcoinKey.Create(randPrvKey1, -1, False);
     //TECKey.Create(System.Copy(AData, 0, 32), True);
 
     //PubKeyAB := THex.Encode(KeyInThread.PublicKey.Q.Normalize.GetEncoded(false));
 
 
 
-
+    if incBTCAddress then
+    begin
     //if incPubKey then
     //begin
-    //PubKeyAB := KeyInThread.PublicKey.Q.Normalize.GetEncoded(False);
+    PubKeyAB := KeyInThread.PublicKey.Q.Normalize.GetEncoded(False);
     PubKey1 := THex.Encode(PubKeyAB);
 
     //  if BinSearch(chk2Sort, PubKey1) > -1 then
@@ -2603,8 +2672,7 @@ begin
     //  Inc(i, 1);
     //end;
 
-    if incBTCAddress then
-    begin
+
       Hash := TDigestUtilities.CalculateDigest('RIPEMD160',
         TDigestUtilities.CalculateDigest('SHA256', PubKeyAB));
       // version byte 00
@@ -2646,10 +2714,11 @@ begin
 
 
 
-
+    if incBTCAddressC then
+    begin
     //if incPubKeyComp then
     //begin
-    //PubKeyCompAB := KeyInThread.PublicKey.Q.Normalize.GetEncoded(True);
+    PubKeyCompAB := KeyInThread.PublicKey.Q.Normalize.GetEncoded(True);
     PubKeyComp1 := THex.Encode(PubKeyCompAB);
 
     //  if BinSearch(chk2Sort, PubKeyComp1) > -1 then
@@ -2662,8 +2731,7 @@ begin
     //  Inc(i, 1);
     //end;
 
-    if incBTCAddressC then
-    begin
+
       Hash := TDigestUtilities.CalculateDigest('RIPEMD160',
         TDigestUtilities.CalculateDigest('SHA256', PubKeyCompAB));
       // version byte 00
@@ -3125,6 +3193,11 @@ begin
   tmrLstEdtTimeOut.Enabled := True;
 end;
 
+procedure TfrmMain.FormResize(Sender: TObject);
+begin
+  KSMDrawMap;
+end;
+
 procedure TfrmMain.lstDRAWwithHTML(Control: TWinControl; Index: integer;
   ARect: TRect; State: TOwnerDrawState);
 var
@@ -3192,10 +3265,10 @@ begin
   btnBBquickPickClick(Sender);
   if lstBoxLottoTickets.Items.Count < 1 then
     ReOrderPowerBall();
-  incPubKey := chkPublicKey.Checked;
-  incPubKeyComp := chkPublicKeyComp.Checked;
+
+
   incBTCAddress := chkBTCAdr.Checked;
-  incBTCAddressC := chkPublicKeyComp.Checked;
+  incBTCAddressC := chkBTCAdrComp.Checked;
 
   // if not chkHideOnStart.Checked then begin
   //   frmMain.VisProgrammingible:=true;
@@ -3209,6 +3282,7 @@ begin
 
   procHiderMakeBtns;// create private key hider buttons
   spnedtDirtyBroomWeightChange(Sender); // get dirtybroom random static set
+  KSMPrepareMap;
   OCLProbe(Sender);
 
 end;
